@@ -16,7 +16,7 @@ file.FindNewBeta=file.Find
 
 file.ExistsBeta=file.Exists
 
-	file.ExistsBeta=function(name,where,...)
+	file.Exists=function(name,where,...)
 		if where==nil or where==false then
 			return file.ExistsBeta(name,"DATA",...)
 		elseif where==true then
