@@ -2,6 +2,30 @@ _G.BETA=true
 _G._BETA=true
 _G.__BETA=true
 
+file.FindDirBeta=file.FindDir
+
+	file.FindDir=function(name,where,...)
+		if where==nil or where==false then
+			return file.FindDirBeta(name,"DATA",...)
+		elseif where==true then
+			return file.FindDirBeta(name,"GAME",...)
+		else
+			return file.FindDirBeta(name,where,...)
+		end
+	end
+	
+file.TimeBeta =	file.Time 
+				file.Time=
+	function(name,where,...)
+		if where==nil or where==false then
+			return file.TimeBeta(name,"DATA",...)
+		elseif where==true then
+			return file.TimeBeta(name,"GAME",...)
+		else
+			return file.TimeBeta(name,where,...)
+		end
+	end
+
 file.FindNewBeta=file.Find
 
 	file.Find=function(name,where,...)

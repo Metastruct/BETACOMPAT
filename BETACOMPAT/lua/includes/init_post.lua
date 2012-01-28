@@ -1,9 +1,28 @@
 
+local files = file.FindInLua("includes/extensions/*.lua")
+local bad = {
+"extensions/file.lua",
+"extensions/angle.lua",
+"extensions/debug.lua",
+"extensions/entity.lua",
+"extensions/ents.lua",
+"extensions/math.lua",	
+"extensions/player.lua",
+"extensions/player_auth.lua",
+"extensions/string.lua",
+"extensions/table.lua",
+"extensions/util.lua",
+"extensions/vector.lua"
+
+}
+
 require ( "datastream" )
 
-for k,v in pairs(file.FindInLua("includes/extensions/*.lua")) do
-	--print("extnsions including "..tostring(v))
-	include("extensions/"..v)
+for k,v in pairs(files) do
+	local str = "extensions/"..v
+	if not table.HasValue(bad,str) then
+		include(str)
+	end
 end
 
 

@@ -117,7 +117,7 @@ end
     Print version information to the console
 -----------------------------------------------------------]]
 
-Msg( "Lua " .. _VERSION .. " initialized on Garry's Mod "..VERSION.."\n" )
+Msg( _VERSION .. " initialized on Garry's Mod "..VERSION.."\n" )
 
 AddCSLuaFile ( "init_post.lua" ) 		-- Hack
 include ( "init_post.lua" )
