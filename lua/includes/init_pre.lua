@@ -13,7 +13,7 @@ file.FindDirBeta=file.FindDir
 			return file.FindDirBeta(name,where,...)
 		end
 	end
-	
+
 file.TimeBeta =	file.Time 
 				file.Time=
 	function(name,where,...)
@@ -49,7 +49,7 @@ file.ExistsBeta=file.Exists
 			return file.ExistsBeta(name,where,...)
 		end
 	end
-	
+
 
 utilx=utilx or util
 
