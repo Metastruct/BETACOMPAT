@@ -69,7 +69,7 @@ if ( CLIENT ) then
 	require ( "presets" )
 	require ( "cookie" )
 	require ( "menubar" )
-	
+
 	include( "util/model_database.lua" )	-- Store information on models as they're loaded
 	include( "util/vgui_showlayout.lua" ) 	-- VGUI Performance Debug
 	include( "util/tooltips.lua" )	
@@ -86,7 +86,7 @@ include( "gmsave.lua" )
 
 --[[---------------------------------------------------------
     Extensions
-	
+
 	Load extensions that we specifically need for the menu,
 	to reduce the chances of loading something that might 
 	cause errors.
@@ -126,5 +126,5 @@ if ( SERVER ) then
 
 	concommand.Add( "+numpad", CC_NumpadOn )
 	concommand.Add( "-numpad", CC_NumpadOff )
-	
+
 end

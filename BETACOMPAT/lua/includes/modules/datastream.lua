@@ -76,7 +76,7 @@ function StreamToClients( rcp, h, d, cb )
 	else
 		error(("Invalid type %q given to datastream.StreamToClients for recipients!"):format(type(rcp)))
 	end
-	
+
 	-- Data information
 	o.decdata = d
 	o.encdata = ""
