@@ -30,11 +30,17 @@ file.FindNewBeta=file.Find
 
 	file.Find=function(name,where,...)
 		if where==nil or where==false then
-			return file.FindNewBeta(name,"DATA",...)
+			local files,dirs =  file.FindNewBeta(name,"DATA",...)
+			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
+			return files,dirs
 		elseif where==true then
-			return file.FindNewBeta(name,"GAME",...)
+			local files,dirs =  file.FindNewBeta(name,"GAME",...)
+			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
+			return files,dirs
 		else
-			return file.FindNewBeta(name,where,...)
+			local files,dirs =  file.FindNewBeta(name,where,...)
+			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
+			return files,dirs
 		end
 	end
 
@@ -49,7 +55,17 @@ file.ExistsBeta=file.Exists
 			return file.ExistsBeta(name,where,...)
 		end
 	end
+file.IsDirBeta=file.IsDir
 
+	file.IsDir=function(name,where,...)
+		if where==nil or where==false then
+			return file.IsDirBeta(name,"DATA",...)
+		elseif where==true then
+			return file.IsDirBeta(name,"GAME",...)
+		else
+			return file.IsDirBeta(name,where,...)
+		end
+	end
 
 utilx=utilx or util
 
