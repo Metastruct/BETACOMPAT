@@ -159,7 +159,6 @@ vgui\dscrollpanel.lua
 vgui\dshape.lua
 vgui\dslider.lua
 vgui\dsprite.lua
-vgui\dsysbutton.lua
 vgui\dtextentry.lua
 vgui\dtinybutton.lua
 vgui\dtooltip.lua
