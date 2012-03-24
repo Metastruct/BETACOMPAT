@@ -146,7 +146,6 @@ vgui\dmodelselect.lua
 vgui\dmodelselectmulti.lua
 vgui\dmultichoice.lua
 vgui\dnotify.lua
-vgui\dnumberwang.lua
 vgui\dnumpad.lua
 vgui\dnumslider.lua
 vgui\dpanel.lua

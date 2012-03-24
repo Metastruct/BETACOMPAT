@@ -27,5 +27,30 @@ end
 
 
 AddCSLuaFile"vgui/dsysbutton.lua"
+AddCSLuaFile"vgui/dnumberwang.lua"
 
--- _R.Entity.SetColor
+local _R_Entity_SetColor=_R.Entity.SetColor
+
+local meta={}
+
+_R.Entity.SetColor=function(self,r,g,b,a)
+	if type(r)!="number" then
+		_R_Entity_SetColor(self,r,g,b,a)
+	else
+		_R_Entity_SetColor(self,Color(r,g,b,a))
+	end
+end
+
+local _R_Entity_GetColor=_R.Entity.GetColor
+
+
+
+function meta:__tostring()
+	return self and self.r or 255
+end
+
+_R.Entity.GetColor=function(self)
+	local col=_R_Entity_GetColor(self)
+	setmetatable(col,meta)
+	return col,col.g,col.b,col.a
+end
