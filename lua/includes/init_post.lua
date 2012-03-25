@@ -81,16 +81,16 @@ _R.Entity.GetColor=function(self)
 end
 
 function Color( r, g, b, a )
-	if type(r)=="table" then
-		ErrorNoHalt("Color() called with a table? Trace time:")
-		debug.Trace()
-	end
+
 	
 	if type(r)=="table" and r.r then
 		a=a or r.a
 		b=b or r.b
 		g=g or r.g
-		r=r or r.r
+		r=r.r
+	elseif type(r)=="table" then
+		ErrorNoHalt("Color() called with a table? Trace time:")
+		debug.Trace()
 	end
 	
 	a = a or 255
