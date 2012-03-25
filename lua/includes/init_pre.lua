@@ -43,7 +43,15 @@ file.FindNewBeta=file.Find
 			return files,dirs
 		end
 	end
+	
+-- oh god
+file.TFind=function(name,func)
 
+	local files,dirs =  file.FindNewBeta(name,"GAME")
+	timer.Simple(0,func,name,dirs,files)
+	
+end
+	
 file.ExistsBeta=file.Exists
 
 	file.Exists=function(name,where,...)

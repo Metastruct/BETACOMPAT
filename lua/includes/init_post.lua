@@ -1,3 +1,28 @@
+-- are we early enough?
+
+local str="TEST"
+file.Write("gmodbetabugfix.txt",str)
+local str_=file.Read("gmodbetabugfix.txt",str)
+file.Delete("gmodbetabugfix.txt")
+if str_!=str then
+	function file.Read( filename, path )
+
+		if ( path == true ) then path = "GAME" end
+		if ( path == nil || path == false ) then path = "DATA" end
+
+		local f = file.Open( filename, "r", path )
+		if ( !f ) then return end
+
+		local str = f:ReadString( f:Size() )
+
+		f:Close()
+
+		if ( !str ) then str = "" end
+		return str:sub(1,-2)
+
+	end
+end
+
 
 local files = file.FindInLua("includes/extensions/*.lua")
 local bad = {
@@ -34,10 +59,10 @@ local _R_Entity_SetColor=_R.Entity.SetColor
 local meta={}
 
 _R.Entity.SetColor=function(self,r,g,b,a)
-	if type(r)!="number" then
-		_R_Entity_SetColor(self,r,g,b,a)
-	else
+	if g then
 		_R_Entity_SetColor(self,Color(r,g,b,a))
+	else
+		_R_Entity_SetColor(self,r)
 	end
 end
 
