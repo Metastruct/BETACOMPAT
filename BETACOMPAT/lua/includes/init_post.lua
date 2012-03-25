@@ -79,3 +79,21 @@ _R.Entity.GetColor=function(self)
 	setmetatable(col,meta)
 	return col,col.g,col.b,col.a
 end
+
+function Color( r, g, b, a )
+	if type(r)=="table" then
+		ErrorNoHalt("Color() called with a table? Trace time:")
+		debug.Trace()
+	end
+	
+	if type(r)=="table" and r.r then
+		a=a or r.a
+		b=b or r.b
+		g=g or r.g
+		r=r or r.r
+	end
+	
+	a = a or 255
+	return { r = math.min( tonumber(r), 255 ), g =  math.min( tonumber(g), 255 ), b =  math.min( tonumber(b), 255 ), a =  math.min( tonumber(a), 255 ) }
+	
+end
