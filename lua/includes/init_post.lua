@@ -38,7 +38,7 @@ local bad = {
 "extensions/string.lua",
 "extensions/table.lua",
 "extensions/util.lua",
-"extensions/vector.lua"
+"extensions/vector.lua",
 
 }
 
