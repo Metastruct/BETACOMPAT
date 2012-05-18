@@ -5,6 +5,7 @@ file.Write("gmodbetabugfix.txt",str)
 local str_=file.Read("gmodbetabugfix.txt",str)
 file.Delete("gmodbetabugfix.txt")
 if str_!=str then
+	print("fixing shitbug")
 	function file.Read( filename, path )
 
 		if ( path == true ) then path = "GAME" end
@@ -59,10 +60,18 @@ local _R_Entity_SetColor=_R.Entity.SetColor
 local meta={}
 
 _R.Entity.SetColor=function(self,r,g,b,a)
-	if g then
+	local alpha=255
+	if g and b then
 		_R_Entity_SetColor(self,Color(r,g,b,a))
+		alpha=a or alpha
 	else
 		_R_Entity_SetColor(self,r)
+		alpha=a or r.a or alpha
+	end
+	if alpha<255 then
+		self:SetRenderMode(1)
+	else
+		self:SetRenderMode(0)
 	end
 end
 
