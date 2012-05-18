@@ -5,12 +5,18 @@
 
 include ( "init_pre.lua" ) 		-- Hack
 AddCSLuaFile ( "init_pre.lua" ) 		-- Hack
+
+
+--[[---------------------------------------------------------
+	Non-Module includes
+-----------------------------------------------------------]]
+
 include ( "util.lua" )			-- Misc Utilities	
 include ( "util/sql.lua" )		-- Include sql here so it's 
 								-- available at loadtime to modules.
 
 --[[---------------------------------------------------------
-    Shared Modules
+	Shared Modules
 -----------------------------------------------------------]]
 
 require ( "baseclass" )
@@ -20,7 +26,6 @@ require ( "gamemode" )			-- Gamemode manager
 require ( "weapons" )			-- SWEP manager
 require ( "hook" )				-- Gamemode hooks
 require ( "timer" )				-- Timer manager
-require ( "schedule" )			-- Schedule manager
 require ( "scripted_ents" )		-- Scripted Entities
 require ( "player_manager" )	-- Player models manager
 require ( "numpad" )
@@ -35,13 +40,13 @@ require ( "list" )
 require ( "cvars" )
 require ( "http" )
 require ( "net" )
-require ( "rpc" )
 require ( "properties" )
 require ( "widget" )
+require ( "glon" )
 require ( "datastream" )
 
 --[[---------------------------------------------------------
-    Serverside only modules
+	Serverside only modules
 -----------------------------------------------------------]]
 
 if ( SERVER ) then
@@ -55,7 +60,7 @@ end
 
 
 --[[---------------------------------------------------------
-    Clientside only modules
+	Clientside only modules
 -----------------------------------------------------------]]
 
 if ( CLIENT ) then
@@ -69,7 +74,7 @@ if ( CLIENT ) then
 	require ( "presets" )
 	require ( "cookie" )
 	require ( "menubar" )
-
+	
 	include( "util/model_database.lua" )	-- Store information on models as they're loaded
 	include( "util/vgui_showlayout.lua" ) 	-- VGUI Performance Debug
 	include( "util/tooltips.lua" )	
@@ -80,13 +85,13 @@ end
 
 
 --[[---------------------------------------------------------
-    Shared modules
+	Shared modules
 -----------------------------------------------------------]]
 include( "gmsave.lua" )
 
 --[[---------------------------------------------------------
-    Extensions
-
+	Extensions
+	
 	Load extensions that we specifically need for the menu,
 	to reduce the chances of loading something that might 
 	cause errors.
@@ -106,25 +111,22 @@ include ( "extensions/util.lua" )
 include ( "extensions/vector.lua" )
 
 if ( CLIENT ) then
+
 	include ( "extensions/client/entity.lua" )
 	include ( "extensions/client/globals.lua" )
 	include ( "extensions/client/panel.lua" )
 	include ( "extensions/client/player.lua" )
 	include ( "extensions/client/render.lua" )
+
+	require ( "search" )
+
 end
 
 --[[---------------------------------------------------------
-    Print version information to the console
+	Print version information to the console
 -----------------------------------------------------------]]
-
-Msg( _VERSION .. " initialized on Garry's Mod "..VERSION.."\n" )
 
 AddCSLuaFile ( "init_post.lua" ) 		-- Hack
 include ( "init_post.lua" )
 
-if ( SERVER ) then
-
-	concommand.Add( "+numpad", CC_NumpadOn )
-	concommand.Add( "-numpad", CC_NumpadOff )
-
-end
+Msg( "Lua initialized (" .. _VERSION .. ")\n" )
