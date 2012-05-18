@@ -2,7 +2,7 @@
 
 local str="TEST"
 file.Write("gmodbetabugfix.txt",str)
-local str_=file.Read("gmodbetabugfix.txt",str)
+local str_=file.Read("gmodbetabugfix.txt")
 file.Delete("gmodbetabugfix.txt")
 if str_!=str then
 	print("fixing shitbug")
