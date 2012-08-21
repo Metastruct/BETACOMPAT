@@ -1,7 +1,3 @@
-AddCSLuaFile("vgui/dnumberwang.lua")
-AddCSLuaFile("vgui/dsysbutton.lua")
-
-
 local bad={}
 local _include=include
 local include=function(v) table.insert(bad,v) end
