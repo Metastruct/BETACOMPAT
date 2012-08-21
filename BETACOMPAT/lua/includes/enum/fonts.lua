@@ -8,7 +8,15 @@ surface.CreateFont=function(font_name, size, weight, antialias, additive, new_fo
 	if type(size)=="table" then return surface_CreateFont(font_name, size, weight, antialias, additive, new_font_name, shadow, outline, blursize, scan, ... ) end
 	surface_CreateFont(new_font_name,
 	{
-	size=size, weight=weight, antialias=antialias, additive=additive, font=font_name, shadow=shadow, outline=outline, blursize=blursize, scanlines=scan )
+		size=size,
+		weight=weight,
+		antialias=antialias, 
+		additive=additive,
+		font=font_name, 
+		shadow=shadow, 
+		outline=outline,
+		blursize=blursize, 
+		scanlines=scan 
 	})
 end
 

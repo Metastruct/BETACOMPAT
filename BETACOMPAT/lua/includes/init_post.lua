@@ -43,11 +43,20 @@ end
 
 -- get is missing nowadays, sigh?
 http.Get=function(url,head,func,...)
+	local t={...}
 	local function Write( body, length, headers, responsecode )
-		func(...,body,length)
+		if #t>0 then
+			func(unpack(t),body,length)
+		else
+			func(body,length)
+		end
 	end
 	local function Fail( body, length, headers, responsecode )
-		func(...,"",0)
+		if #t>0 then
+			func(unpack(t),"",0)
+		else
+			func("",0)
+		end
 	end
 	http.Fetch( url, Write, Fail ) 
 end

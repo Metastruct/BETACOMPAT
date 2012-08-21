@@ -38,12 +38,16 @@ file.FindNewBeta=file.Find
 
 	file.Find=function(name,where,...)
 		if where==nil or where==false then
-			ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
+			if DEBUG then
+				ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
+			end
 			local files,dirs =  file.FindNewBeta(name,"DATA",...)
 			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
 			return files,dirs
 		elseif where==true then
-			ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
+			if DEBUG then
+				ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
+			end
 			local files,dirs =  file.FindNewBeta(name,"GAME",...)
 			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
 			return files,dirs
@@ -98,9 +102,54 @@ if CLIENT then
 	SetMaterialOverride=render.MaterialOverride
 end
 
+function IncludeClientFile( filename )
+	
+	if ( CLIENT ) then
+		include( filename )
+	else
+		AddCSLuaFile( filename )
+	end
+	
+end
+
 for k,v in pairs(file.FindInLua("includes/enum/*.lua")) do
 	print("including "..tostring(v))
 	include("enum/"..v)
+end
+
+
+
+function server_settings.Int( name, default )
+
+	if ( !ConVarExists( name ) ) then return default end
+
+	return GetConVarNumber( name )
+
+end
+
+function server_settings.Bool( name, default )
+
+	if (default) then default = 1 else default = 0 end
+
+	return Int( name, default ) != 0
+
+end
+
+
+local meta = FindMetaTable( "Player" )
+if (!meta) then return end
+
+function meta:GetScriptedVehicle()
+
+	return self:GetNetworkedEntity( "ScriptedVehicle", NULL )
+
+end
+
+function meta:SetScriptedVehicle( veh )
+
+	self:SetNetworkedEntity( "ScriptedVehicle", veh )
+	self:SetViewEntity( veh )
+
 end
 
 /*
