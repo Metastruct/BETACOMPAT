@@ -118,7 +118,7 @@ for k,v in pairs(file.FindInLua("includes/enum/*.lua")) do
 end
 
 
-
+server_settings=server_settings or {}
 function server_settings.Int( name, default )
 
 	if ( !ConVarExists( name ) ) then return default end
