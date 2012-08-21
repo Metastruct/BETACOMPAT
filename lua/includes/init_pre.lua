@@ -1,6 +1,14 @@
+if SERVER then
+	AddCSLuaFile("init.lua")
+	AddCSLuaFile("init_pre.lua")
+	AddCSLuaFile("init_post.lua")
+end
+
 _G.BETA=true
 _G._BETA=true
 _G.__BETA=true
+_G.DEBUG=true
+_G._DEBUG=true
 
 file.FindDirBeta=file.FindDir
 
@@ -30,16 +38,18 @@ file.FindNewBeta=file.Find
 
 	file.Find=function(name,where,...)
 		if where==nil or where==false then
+			ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
 			local files,dirs =  file.FindNewBeta(name,"DATA",...)
 			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
 			return files,dirs
 		elseif where==true then
+			ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
 			local files,dirs =  file.FindNewBeta(name,"GAME",...)
 			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
 			return files,dirs
 		else
 			local files,dirs =  file.FindNewBeta(name,where,...)
-			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
+			--for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
 			return files,dirs
 		end
 	end

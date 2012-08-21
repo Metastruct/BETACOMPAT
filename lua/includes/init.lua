@@ -1,10 +1,4 @@
-
---[[---------------------------------------------------------
-    Non-Module includes
------------------------------------------------------------]]
-
-include ( "init_pre.lua" ) 		-- Hack
-AddCSLuaFile ( "init_pre.lua" ) 		-- Hack
+include "init_pre.lua" AddCSLuaFile "init_pre.lua" 
 
 
 --[[---------------------------------------------------------
@@ -27,7 +21,7 @@ require ( "weapons" )			-- SWEP manager
 require ( "hook" )				-- Gamemode hooks
 require ( "timer" )				-- Timer manager
 require ( "scripted_ents" )		-- Scripted Entities
-require ( "player_manager" )	-- Player models manager
+require ( "player_manager" )	-- Player models/class manager
 require ( "numpad" )
 require ( "team" )
 require ( "undo" )
@@ -45,13 +39,17 @@ require ( "widget" )
 require ( "glon" )
 require ( "datastream" )
 
+require (  "drive" )
+include ( "drive/drive_base.lua" )
+include ( "drive/drive_noclip.lua" )
+include ( "drive/drive_sandbox.lua" )
+
 --[[---------------------------------------------------------
 	Serverside only modules
 -----------------------------------------------------------]]
 
 if ( SERVER ) then
 
-	require ( "server_settings" )
 	require ( "ai_schedule" )
 	require ( "ai_task" )
 	include( "util/entity_creation_helpers.lua" )
@@ -122,11 +120,7 @@ if ( CLIENT ) then
 
 end
 
---[[---------------------------------------------------------
-	Print version information to the console
------------------------------------------------------------]]
 
-AddCSLuaFile ( "init_post.lua" ) 		-- Hack
-include ( "init_post.lua" )
 
-Msg( "Lua initialized (" .. _VERSION .. ")\n" )
+AddCSLuaFile "init_post.lua" include "init_post.lua"
+
