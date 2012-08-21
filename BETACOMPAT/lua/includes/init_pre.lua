@@ -119,6 +119,7 @@ end
 
 
 server_settings=server_settings or {}
+local server_settings=server_settings
 function server_settings.Int( name, default )
 
 	if ( !ConVarExists( name ) ) then return default end
@@ -131,7 +132,7 @@ function server_settings.Bool( name, default )
 
 	if (default) then default = 1 else default = 0 end
 
-	return Int( name, default ) != 0
+	return server_settings.Int( name, default ) != 0
 
 end
 
