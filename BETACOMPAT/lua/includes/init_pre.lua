@@ -102,3 +102,17 @@ for k,v in pairs(file.FindInLua("includes/enum/*.lua")) do
 	print("including "..tostring(v))
 	include("enum/"..v)
 end
+
+/*
+   Removed ents.Create clientside
+   Removed GetMountedContent()
+Removed GetMountableContent()
+Added game.GetMountedAddons()
+Added string.StartWith( str, start )
+Added string.EndsWith( str, end )
+Removed GetGamemodes()
+Removed GetAddonList()
+Removed GetAddonInfo()
+Removed Player:GetCursorAimVector()
+NETWORKED VARS
+*/
