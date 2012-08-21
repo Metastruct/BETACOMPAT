@@ -2,7 +2,9 @@ AddCSLuaFile("vgui/dnumberwang.lua")
 AddCSLuaFile("vgui/dsysbutton.lua")
 
 
-local bad,_include,include = {},_G.include,function(v) table.insert(bad,v) end
+local bad={}
+local _include=include
+local include=function(v) table.insert(bad,v) end
 --------------- from init.lua ----------------
 
 include ( "extensions/file.lua" )
