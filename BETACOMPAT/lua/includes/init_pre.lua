@@ -39,14 +39,14 @@ file.FindNewBeta=file.Find
 	file.Find=function(name,where,...)
 		if where==nil or where==false then
 			if DEBUG then
-				ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
+			--	ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
 			end
 			local files,dirs =  file.FindNewBeta(name,"DATA",...)
 			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
 			return files,dirs
 		elseif where==true then
 			if DEBUG then
-				ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
+			--	ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
 			end
 			local files,dirs =  file.FindNewBeta(name,"GAME",...)
 			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
