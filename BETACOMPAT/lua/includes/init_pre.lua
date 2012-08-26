@@ -112,10 +112,6 @@ function IncludeClientFile( filename )
 	
 end
 
-for k,v in pairs(file.FindInLua("includes/enum/*.lua")) do
-	print("including "..tostring(v))
-	include("enum/"..v)
-end
 
 
 server_settings=server_settings or {}
@@ -136,9 +132,13 @@ function server_settings.Bool( name, default )
 
 end
 
+for k,v in pairs(file.Find("includes/enum/*.lua",LUA_PATH)) do
+	ErrorNoHalt("including "..tostring(v))
+	include("enum/"..v)
+end
+
 
 local meta = FindMetaTable( "Player" )
-if (!meta) then return end
 
 function meta:GetScriptedVehicle()
 
@@ -153,7 +153,6 @@ function meta:SetScriptedVehicle( veh )
 
 end
 
-
 -- FIX ASAP
 local _Vector=Vector
 Vector=function(x,y,z) return y==nil and _Vector(1,1,1) or _Vector(x,y,z) end 
@@ -161,7 +160,7 @@ Vector=function(x,y,z) return y==nil and _Vector(1,1,1) or _Vector(x,y,z) end
 -- FIX SOON
 local _Angle=Angle
 Angle=function(p,y,r) return y==nil and _Angle(1,1,1) or _Angle(p,y,r) end 
-
+ErrorNoHalt"init_pre"
 /*
    Removed ents.Create clientside
    Removed GetMountedContent()
