@@ -34,7 +34,7 @@ local files = file.FindInLua("includes/extensions/*.lua")
 for k,v in pairs(files) do
 	local str = "extensions/"..v
 	if not table.HasValue(bad,str) then
-		include(str)
+		include("includes/"..str)
 	end
 end
 
@@ -94,7 +94,7 @@ function AccessorFuncNW( tab, varname, name, varDefault, iForce )
 	tab[ "Set"..name ] = function ( self, v ) self:SetNetworkedVar( varname, v ) end
 
 end
-
+ErrorNoHalt"init_post"
 /*
 function IsMounted( name )
 

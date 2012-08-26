@@ -12,4 +12,5 @@ if mat and !mat.GetMaterialMatrix then
 	mat.SetMaterialString = mat.SetMaterialString or mat.SetString
 	mat.SetMaterialTexture = mat.SetMaterialTexture or mat.SetTexture
 	mat.SetMaterialVector = mat.SetMaterialVector or mat.SetVector
+	ErrorNoHalt"materials.lua"
 end
