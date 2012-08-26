@@ -34,6 +34,7 @@ local files = file.FindInLua("includes/extensions/*.lua")
 for k,v in pairs(files) do
 	local str = "extensions/"..v
 	if not table.HasValue(bad,str) then
+		ErrorNoHalt("Adding extension "..v)
 		include("includes/"..str)
 	end
 end
