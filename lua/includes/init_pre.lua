@@ -133,7 +133,6 @@ function server_settings.Bool( name, default )
 end
 
 for k,v in pairs(file.Find("includes/enum/*.lua",LUA_PATH)) do
-	ErrorNoHalt("including "..tostring(v))
 	include("enum/"..v)
 end
 
