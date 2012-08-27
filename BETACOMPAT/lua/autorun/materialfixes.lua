@@ -19,8 +19,5 @@ else
 		mat.SetMaterialString = mat.SetMaterialString or mat.SetString
 		mat.SetMaterialTexture = mat.SetMaterialTexture or mat.SetTexture
 		mat.SetMaterialVector = mat.SetMaterialVector or mat.SetVector
-		ErrorNoHalt"materialfixes.lua"
-	else
-		ErrorNoHalt"materialfixes.lua failed loading, missing IMaterial??"
 	end
 end

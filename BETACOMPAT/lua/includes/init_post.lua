@@ -34,7 +34,6 @@ local files = file.FindInLua("includes/extensions/*.lua")
 for k,v in pairs(files) do
 	local str = "extensions/"..v
 	if not table.HasValue(bad,str) then
-		ErrorNoHalt("Adding extension "..v)
 		include("includes/"..str)
 	end
 end
@@ -65,13 +64,13 @@ end
 hook.Add("PostInitEntity", "GM13", function()
 	hook.Remove("PostInitEntity", "GM13")
 	
-	local OldEmitFunc=_R.Entity.EmitSound
+	local _R_Entity_EmitSound=_R.Entity.EmitSound
 	function _R.Entity.EmitSound(self, filen, vol, p)
 		local volume = 100
 		local pitch = 100
 		if vol then volume = math.Clamp(vol, 1, 100) end
 		if p then pitch = p end
-		OldEmitFunc(self, filen, vol, pitch)
+		OldEmitFunc(self, filen, volume, pitch)
 	end
 end)
 
@@ -95,7 +94,7 @@ function AccessorFuncNW( tab, varname, name, varDefault, iForce )
 	tab[ "Set"..name ] = function ( self, v ) self:SetNetworkedVar( varname, v ) end
 
 end
-ErrorNoHalt"init_post"
+
 /*
 function IsMounted( name )
 

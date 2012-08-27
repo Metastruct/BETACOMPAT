@@ -138,20 +138,6 @@ for k,v in pairs(file.Find("includes/enum/*.lua",LUA_PATH)) do
 end
 
 
-local meta = FindMetaTable( "Player" )
-
-function meta:GetScriptedVehicle()
-
-	return self:GetNetworkedEntity( "ScriptedVehicle", NULL )
-
-end
-
-function meta:SetScriptedVehicle( veh )
-
-	self:SetNetworkedEntity( "ScriptedVehicle", veh )
-	self:SetViewEntity( veh )
-
-end
 
 -- FIX ASAP
 local _Vector=Vector
@@ -160,7 +146,7 @@ Vector=function(x,y,z) return y==nil and _Vector(1,1,1) or _Vector(x,y,z) end
 -- FIX SOON
 local _Angle=Angle
 Angle=function(p,y,r) return y==nil and _Angle(1,1,1) or _Angle(p,y,r) end 
-ErrorNoHalt"init_pre"
+
 /*
    Removed ents.Create clientside
    Removed GetMountedContent()
@@ -174,3 +160,15 @@ Removed GetAddonInfo()
 Removed Player:GetCursorAimVector()
 NETWORKED VARS
 */
+/*	["GetAddons"] = function:([C]),
+	["GetGames"] = function:([C]),
+	["GetGamemodes"] = function:([C]),
+	["SetMounted"] = function:([C]),
+	["ActiveGamemode"] = function:([C]),
+}*/
+
+GetGamemodes=GetGamemodes or engine.GetGamemodes
+GetAddonList=GetAddonList or engine.GetAddons
+GetAddonInfo=GetAddonInfo or function() return {} end
+GetMountableContent=GetMountableContent or function() return {} end
+GetMountedContent=GetMountedContent or function() return {} end
