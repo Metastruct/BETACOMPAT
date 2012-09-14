@@ -50,6 +50,7 @@ surface.CreateFont("Trebuchet MS",41,900,false,false,"HUDNumber1",false,false)
 surface.CreateFont("Trebuchet MS",18,900,false,false,"Trebuchet18",false,false)
 surface.CreateFont("Tahoma",18,0,false,false,"DefaultLarge",false,false)
 surface.CreateFont("Trebuchet MS",20,900,false,false,"Trebuchet20",false,false)
+surface.CreateFont("Trebuchet MS",22,900,false,false,"Trebuchet22",false,false) -- this was missing but why??
 surface.CreateFont("Trebuchet MS",24,900,false,false,"Trebuchet24",false,false)
 surface.CreateFont("Marlett",14,0,false,false,"Marlett",false,false)
 surface.CreateFont("Lucida Console",10,0,false,false,"DefaultFixed",false,false)
