@@ -113,6 +113,8 @@ function IncludeClientFile( filename )
 end
 
 
+IsValid=IsValid or ValidEntity or _R.Entity.IsValid
+ValidEntity=ValidEntity or IsValid
 
 server_settings=server_settings or {}
 local server_settings=server_settings
