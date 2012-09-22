@@ -1,3 +1,0 @@
-GetWorldEntity=GetWorldEntity or game.GetWorld
-isDedicatedServer=isDedicatedServer or game.IsDedicated
-IsDedicatedServer=IsDedicatedServer or game.IsDedicated
