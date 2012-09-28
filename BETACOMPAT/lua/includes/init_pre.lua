@@ -36,23 +36,24 @@ file.TimeBeta =	file.Time
 
 file.FindNewBeta=file.Find
 
-	file.Find=function(name,where,...)
+	file.Find=function(name,where,sorting,...)
+		sorting=sorting or "*namedesc*"
 		if where==nil or where==false then
 			if DEBUG then
 			--	ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
 			end
-			local files,dirs =  file.FindNewBeta(name,"DATA",...)
+			local files,dirs =  file.FindNewBeta(name,"DATA",sorting,...)
 			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
 			return files,dirs
 		elseif where==true then
 			if DEBUG then
 			--	ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
 			end
-			local files,dirs =  file.FindNewBeta(name,"GAME",...)
+			local files,dirs =  file.FindNewBeta(name,"GAME",sorting,...)
 			for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
 			return files,dirs
 		else
-			local files,dirs =  file.FindNewBeta(name,where,...)
+			local files,dirs =  file.FindNewBeta(name,where,sorting,...)
 			--for k,v in pairs(dirs or {}) do	table.insert(files or {},v) end
 			return files,dirs
 		end
