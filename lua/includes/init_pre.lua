@@ -93,7 +93,7 @@ file.IsDirBeta=file.IsDir
 utilx=utilx or util
 
 file.FindInLua=function(a)
-	return file.FindNewBeta(a,LUA_PATH)
+	return file.FindNewBeta(a,LUA_PATH,"*namedesc*")
 end
 
 TableToKeyValues=util.TableToKeyValues
