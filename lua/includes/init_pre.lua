@@ -92,8 +92,8 @@ file.IsDirBeta=file.IsDir
 
 utilx=utilx or util
 
-file.FindInLua=function(a)
-	return file.FindNewBeta(a,"lsv","")
+file.FindInLua=function(a,b,c)
+	return file.FindNewBeta(a,b or "lsv",c or "")
 end
 
 TableToKeyValues=util.TableToKeyValues
@@ -135,7 +135,7 @@ function server_settings.Bool( name, default )
 
 end
 
-for k,v in pairs(file.Find("includes/enum/*.lua",LUA_PATH)) do
+for k,v in pairs(file.FindInLua("includes/enum/*.lua")) do
 	include("enum/"..v)
 end
 
