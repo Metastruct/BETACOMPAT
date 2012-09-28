@@ -1,6 +1,7 @@
 include "init_pre.lua" AddCSLuaFile "init_pre.lua" 
 
 
+
 --[[---------------------------------------------------------
 	Non-Module includes
 -----------------------------------------------------------]]
@@ -39,10 +40,9 @@ require ( "widget" )
 require ( "glon" )
 require ( "datastream" )
 
-require (  "drive" )
+require ( "drive" )
 include ( "drive/drive_base.lua" )
 include ( "drive/drive_noclip.lua" )
-include ( "drive/drive_sandbox.lua" )
 
 --[[---------------------------------------------------------
 	Serverside only modules
@@ -72,11 +72,14 @@ if ( CLIENT ) then
 	require ( "presets" )
 	require ( "cookie" )
 	require ( "menubar" )
+	require ( "matproxy" )
 	
 	include( "util/model_database.lua" )	-- Store information on models as they're loaded
 	include( "util/vgui_showlayout.lua" ) 	-- VGUI Performance Debug
 	include( "util/tooltips.lua" )	
 	include( "util/client.lua" )
+	include( "util/javascript_util.lua" )
+	include( "util/workshop_files.lua" )
 	include( "gui/icon_progress.lua" )
 
 end
@@ -107,6 +110,7 @@ include ( "extensions/string.lua" )
 include ( "extensions/table.lua" )
 include ( "extensions/util.lua" )
 include ( "extensions/vector.lua" )
+include ( "extensions/game.lua" )
 
 if ( CLIENT ) then
 
@@ -119,6 +123,8 @@ if ( CLIENT ) then
 	require ( "search" )
 
 end
+
+
 
 
 

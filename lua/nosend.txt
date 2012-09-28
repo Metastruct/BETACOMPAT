@@ -47,6 +47,7 @@ lua\vgui\diconlayout.lua
 lua\vgui\dimage.lua
 lua\vgui\dimagebutton.lua
 lua\vgui\dkillicon.lua
+lua\vgui\dlabel.lua
 lua\vgui\dcolumnsheet.lua
 lua\vgui\dlabeleditable.lua
 lua\vgui\dcombobox.lua
@@ -56,7 +57,6 @@ lua\vgui\dlistlayout.lua
 lua\vgui\dlistview.lua
 lua\vgui\dlistview_column.lua
 lua\vgui\dlistview_line.lua
-lua\vgui\dluaeditor.lua
 lua\vgui\dmenu.lua
 lua\vgui\dmenubar.lua
 lua\vgui\dmenuoption.lua
@@ -68,6 +68,7 @@ lua\vgui\dnotify.lua
 lua\vgui\dnumberwang.lua
 lua\vgui\dnumpad.lua
 lua\vgui\dnumslider.lua
+lua\vgui\dpanel.lua
 lua\vgui\dpanellist.lua
 lua\vgui\dpaneloverlay.lua
 lua\vgui\dpanelselect.lua
@@ -112,6 +113,7 @@ lua\includes\modules\weapons.lua
 lua\includes\modules\properties.lua
 lua\includes\modules\timer.lua
 lua\includes\modules\scripted_ents.lua
+lua\includes\modules\matproxy.lua
 lua\includes\modules\player_manager.lua
 lua\includes\modules\numpad.lua
 lua\includes\modules\widget.lua
@@ -140,6 +142,8 @@ lua\includes\modules\notification.lua
 lua\includes\gmsave.lua
 lua\includes\util\model_database.lua
 lua\includes\util\vgui_showlayout.lua
+lua\includes\util\javascript_util.lua
+lua\includes\util\workshop_files.lua
 lua\includes\util\tooltips.lua
 lua\includes\util\client.lua
 lua\includes\extensions\util\worldpicker.lua
@@ -156,6 +160,7 @@ lua\includes\extensions\file.lua
 lua\includes\extensions\ents.lua
 lua\includes\extensions\util.lua
 lua\includes\extensions\angle.lua
+lua\includes\extensions\game.lua
 lua\includes\extensions\vector.lua
 lua\includes\extensions\client\entity.lua
 lua\includes\extensions\client\globals.lua
@@ -191,6 +196,7 @@ lua\autorun\properties\drive.lua
 lua\autorun\properties\ignite.lua
 lua\autorun\properties\collisions.lua
 lua\autorun\properties\gravity.lua
+lua\autorun\properties\npc_scale.lua
 lua\autorun\game_dod.lua
 lua\autorun\game_ep2.lua
 lua\autorun\game_hl2.lua
