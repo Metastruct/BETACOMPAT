@@ -9,8 +9,13 @@ _G._BETA=true
 _G.__BETA=true
 _G.DEBUG=true
 _G._DEBUG=true
+LUA_PATH=LUA_PATH or "LUA"
 
-file.FindDirBeta=file.FindDir
+file.FindDirBeta=file.FindDirBeta or file.FindDir or function(...)
+	local f=file.FindNewBeta or file.Find
+	local a,b=f(...)
+	return b
+end
 
 	file.FindDir=function(name,where,...)
 		if where==nil or where==false then
@@ -37,7 +42,7 @@ file.TimeBeta =	file.Time
 file.FindNewBeta=file.Find
 
 	file.Find=function(name,where,sorting,...)
-		sorting=sorting or "*namedesc*"
+		sorting=sorting or "namedesc"
 		if where==nil or where==false then
 			if DEBUG then
 			--	ErrorNoHalt("Warning, calling file.Find on ("..name..") with old behaviour!")
@@ -93,7 +98,11 @@ file.IsDirBeta=file.IsDir
 utilx=utilx or util
 
 file.FindInLua=function(a,b,c)
-	return file.FindNewBeta(a,b or "LUA",c or "")
+	local a,b = file.FindNewBeta(a,b or "LUA",c or "")
+	for k,v in pairs(b) do
+		table.insert(a,v)
+	end
+	return a
 end
 
 TableToKeyValues=util.TableToKeyValues
