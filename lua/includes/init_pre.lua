@@ -42,6 +42,13 @@ file.TimeBeta =	file.Time
 file.FindNewBeta=file.Find
 
 	file.Find=function(name,where,sorting,...)
+		if name then
+			if name:find("lua_temp",1,true) then
+				ErrorNoHalt"Calling lua_temp, WONT WORK! Trying to fix a bit!"
+				name=name:gsub("lua_temp/",""):gsub("lua_temp\\","")
+				where="lcl"
+			end
+		end
 		sorting=sorting or "namedesc"
 		if where==nil or where==false then
 			if DEBUG then
