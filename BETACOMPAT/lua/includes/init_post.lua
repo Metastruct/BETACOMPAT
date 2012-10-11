@@ -42,13 +42,6 @@ end
 -- get is missing nowadays, sigh?
 http.Get=function(url,head,func,...)
 	local t={...}
-	local function Write( body, length, headers, responsecode )
-		if #t>0 then
-			func(unpack(t),body,length)
-		else
-			func(body,length)
-		end
-	end
 	local function Fail( body, length, headers, responsecode )
 		if #t>0 then
 			func(unpack(t),"",0)
@@ -56,6 +49,19 @@ http.Get=function(url,head,func,...)
 			func("",0)
 		end
 	end
+	local function Write( body, length, headers, responsecode )
+		
+		if tonumber(responsecode)!=200 then
+			Fail( body, length, headers, responsecode )
+		end
+		
+		if #t>0 then
+			func(unpack(t),body,length)
+		else
+			func(body,length)
+		end
+	end
+
 	http.Fetch( url, Write, Fail ) 
 end
 
