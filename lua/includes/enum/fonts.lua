@@ -57,19 +57,15 @@ surface.CreateFont("Lucida Console",10,0,false,false,"DefaultFixed",false,false)
 surface.CreateFont("Tahoma",12,0,false,false,"DefaultSmall",false,false)
 surface.CreateFont("Tahoma",13,700,false,false,"TabLarge",true,false)
 
-local missingfonts={}
+_G.missingfonts={}
+local missingfonts=missingfonts
 local surface_SetFont=surface.SetFont
 local surface_GetTextSize=surface.GetTextSize
 surface.SetFont=function(f)
 	surface_SetFont(f)
 	if surface_GetTextSize"." then
-		missingfonts[f]=true
 		return
 	end
+	missingfonts[f]=true
 	surface_SetFont"Default"
 end
-concommand.Add("dumpmissingfonts",function() 
-	for k,v in pairs(missingfonts) do
-		print(k)
-	end
-end)
