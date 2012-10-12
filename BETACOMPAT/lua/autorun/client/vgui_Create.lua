@@ -2,7 +2,8 @@ local vgui_Create=vgui.Create
 
 local fixtable={
  ["dlabel"]="DLabel",
- ["dbutton"]="DButton"
+ ["dbutton"]="DButton",
+ ["HTML"]="DHTML", -- HTML crashes
 }
 
 vgui.Create=function(a,...)
