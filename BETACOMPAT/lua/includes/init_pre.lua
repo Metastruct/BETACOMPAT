@@ -18,6 +18,14 @@ file.FindDirBeta=file.FindDirBeta or file.FindDir or function(...)
 end
 
 	file.FindDir=function(name,where,...)
+	
+		if name then
+			if name:find("lua_temp",1,true) then
+				name=name:gsub("lua_temp/",""):gsub("lua_temp\\","")
+				where=true
+			end
+		end
+	
 		if where==nil or where==false then
 			return file.FindDirBeta(name,"DATA",...)
 		elseif where==true then
@@ -44,9 +52,8 @@ file.FindNewBeta=file.Find
 	file.Find=function(name,where,sorting,...)
 		if name then
 			if name:find("lua_temp",1,true) then
-				ErrorNoHalt"Calling lua_temp, WONT WORK! Trying to fix a bit!"
 				name=name:gsub("lua_temp/",""):gsub("lua_temp\\","")
-				where="lcl"
+				where=true
 			end
 		end
 		sorting=sorting or "namedesc"
@@ -82,6 +89,13 @@ end
 file.ExistsBeta=file.Exists
 
 	file.Exists=function(name,where,...)
+		if name then
+			if name:find("lua_temp",1,true) then
+				name=name:gsub("lua_temp/",""):gsub("lua_temp\\","")
+				where=true
+			end
+		end
+	
 		if where==nil or where==false then
 			return file.ExistsBeta(name,"DATA",...)
 		elseif where==true then
@@ -93,6 +107,14 @@ file.ExistsBeta=file.Exists
 file.IsDirBeta=file.IsDir
 
 	file.IsDir=function(name,where,...)
+		if name then
+			if name:find("lua_temp",1,true) then
+				name=name:gsub("lua_temp/",""):gsub("lua_temp\\","")
+				where=true
+			end
+		end
+	
+		
 		if where==nil or where==false then
 			return file.IsDirBeta(name,"DATA",...)
 		elseif where==true then
@@ -166,12 +188,9 @@ local _Angle=Angle
 Angle=function(p,y,r) return y==nil and type(p)=="number" and _Angle(1,1,1) or _Angle(p,y,r) end 
 
 /*
-   Removed ents.Create clientside
-   Removed GetMountedContent()
+Removed ents.Create clientside
+Removed GetMountedContent()
 Removed GetMountableContent()
-Added game.GetMountedAddons()
-Added string.StartWith( str, start )
-Added string.EndsWith( str, end )
 Removed GetGamemodes()
 Removed GetAddonList()
 Removed GetAddonInfo()
