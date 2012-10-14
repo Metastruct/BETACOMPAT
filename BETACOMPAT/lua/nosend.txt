@@ -179,7 +179,6 @@ lua\derma\derma_animation.lua
 lua\derma\derma_utils.lua
 lua\derma\derma_gwen.lua
 lua\autorun\base_npcs.lua
-lua\autorun\base_npcs_weapons.lua
 lua\autorun\base_vehicles.lua
 lua\autorun\developer_functions.lua
 lua\drive\drive_base.lua
