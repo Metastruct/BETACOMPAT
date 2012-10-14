@@ -15,6 +15,7 @@ include ( "extensions/string.lua" )
 include ( "extensions/table.lua" )
 include ( "extensions/util.lua" )
 include ( "extensions/vector.lua" )
+include ( "extensions/game.lua" )
 
 if ( CLIENT ) then
 
@@ -24,6 +25,7 @@ if ( CLIENT ) then
 	include ( "extensions/client/player.lua" )
 	include ( "extensions/client/render.lua" )
 
+	require ( "search" )
 
 end
 
