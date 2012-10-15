@@ -10,6 +10,7 @@ _G.__BETA=true
 _G.DEBUG=true
 _G._DEBUG=true
 LUA_PATH=LUA_PATH or "LUA"
+_R=_R or debug.getregistry()
 
 file.FindDirBeta=file.FindDirBeta or file.FindDir or function(...)
 	local f=file.FindNewBeta or file.Find
