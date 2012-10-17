@@ -28,10 +28,14 @@ if type(Vector(0,0,0))=="userdata" then
 			return "Angle"
 		end
 		if x.IsValid then
-			if x.IsPlayer then
-				if x:IsPlayer() then
-					return "Player"
-				end
+			if x.SizeToContents then
+				return "Panel"
+			end
+			if x.ComputeShadowControl then
+				return "PhysObj"
+			end
+			if x.IsPlayer and x:IsPlayer() then
+				return "Player"
 			end
 			if x.IsNPC and x:IsNPC() then
 				return "NPC"
