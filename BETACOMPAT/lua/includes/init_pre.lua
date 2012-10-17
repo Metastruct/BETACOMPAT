@@ -14,6 +14,14 @@ _R=_R or debug.getregistry()
 
 
 if type(Vector(0,0,0))=="userdata" then
+	
+	-- also fixing here
+	if CLIENT then
+		print=function(...) 
+			MsgC(Color(255,255,255,255),...)
+		end
+	end
+	
 	local _type=type
 	type=function(x)
 		local ot=_type(x)
@@ -38,6 +46,7 @@ if type(Vector(0,0,0))=="userdata" then
 			if x:IsValid() then
 				return "Entity"
 			end
+			return "Entity"
 		end
 	end
 end
