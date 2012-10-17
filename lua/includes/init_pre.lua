@@ -12,6 +12,12 @@ _G._DEBUG=true
 LUA_PATH=LUA_PATH or "LUA"
 _R=_R or debug.getregistry()
 
+local _require=require
+require=function(m,...)
+	local ok,ret=pcall(_require,m,...)
+	if ok then return ret or true end
+	-- TODO: Add module info
+end
 
 if type(Vector(0,0,0))=="userdata" then
 
@@ -47,16 +53,18 @@ if type(Vector(0,0,0))=="userdata" then
 		end
 	end
 	
-	-- also fixing here
-	if CLIENT then
-		local t={r=255,g=255,b=255,a=255}
-		_G.print=function(...)
-			MsgC(t,...)
-		end
-	end
-	
 end
 
+-- also fixing here
+if CLIENT then
+	local col={r=255,g=255,b=255,a=255}
+	_G.print=function(...)
+		local a={...}
+		local alen=#a 
+		for i=0,alen-2 do i=alen-i table.insert(a,i,"\t") end
+		MsgC(col,unpack(t),"\n")
+	end
+end
 
 file.FindDirBeta=file.FindDirBeta or file.FindDir or function(...)
 	local f=file.FindNewBeta or file.Find
