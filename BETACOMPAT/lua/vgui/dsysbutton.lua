@@ -1,15 +1,4 @@
-/*   _                                
-    ( )                               
-   _| |   __   _ __   ___ ___     _ _ 
- /'_` | /'__`\( '__)/' _ ` _ `\ /'_` )
-( (_| |(  ___/| |   | ( ) ( ) |( (_| |
-`\__,_)`\____)(_)   (_) (_) (_)`\__,_) 
 
-	DSysWindow
-
-	A system button. A button using the marlett font to show a graphic.
-
-*/
 
 PANEL = {}
 
