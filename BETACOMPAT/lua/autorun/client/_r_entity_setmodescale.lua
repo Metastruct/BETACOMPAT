@@ -1,8 +1,8 @@
-local _R_Entity_SetModeScale=_R.Entity.SetModeScale
-_R.Entity.SetModeScale = function(ent,scale,time,x)
+local _R_Entity_SetModelScale=_R.Entity.SetModelScale
+_R.Entity.SetModelScale = function(ent,scale,time,x)
 	time=time or 0.1
 	if type(scale)=="number" then
-		return _R_Entity_SetModeScale(ent,scale,time,x)
+		return _R_Entity_SetModelScale(ent,scale,time,x)
 	end
 	if scale and scale.x and scale.y and scale.z then
 		local matrix=Matrix()
@@ -11,6 +11,3 @@ _R.Entity.SetModeScale = function(ent,scale,time,x)
 	end
 	error"Invalid parameters"
 end
-print"EEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEK"
-print"EEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEK"
-print"EEEEEEEEEEEK"
