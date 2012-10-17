@@ -12,6 +12,37 @@ _G._DEBUG=true
 LUA_PATH=LUA_PATH or "LUA"
 _R=_R or debug.getregistry()
 
+
+if type(Vector(0,0,0))=="userdata" then
+	local _type=type
+	type=function(x)
+		local ot=_type(x)
+		if ot!="userdata" then
+			return ot
+		end
+		if x.x and x.y and x.z then
+			return "Vector"
+		end
+		if x.p and x.y and x.r then
+			return "Angle"
+		end
+		if x.IsValid then
+			if x.IsPlayer then
+				if x:IsPlayer() then
+					return "Player"
+				end
+			end
+			if x.IsNPC and x:IsNPC() then
+				return "NPC"
+			end
+			if x:IsValid() then
+				return "Entity"
+			end
+		end
+	end
+end
+
+
 file.FindDirBeta=file.FindDirBeta or file.FindDir or function(...)
 	local f=file.FindNewBeta or file.Find
 	local a,b=f(...)
