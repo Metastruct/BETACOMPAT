@@ -1,5 +1,5 @@
-local _R_Entity_SetModeScale=FindMetaTable"Entity".SetModeScale
-FindMetaTable"Entity".SetModeScale = function(ent,scale,time,x)
+local _R_Entity_SetModeScale=_R.Entity.SetModeScale
+_R.Entity.SetModeScale = function(ent,scale,time,x)
 	time=time or 0.1
 	if type(scale)=="number" then
 		return _R_Entity_SetModeScale(ent,scale,time,x)
@@ -11,3 +11,6 @@ FindMetaTable"Entity".SetModeScale = function(ent,scale,time,x)
 	end
 	error"Invalid parameters"
 end
+print"EEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEK"
+print"EEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEKEEEEEEEEEEEK"
+print"EEEEEEEEEEEK"
