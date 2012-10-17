@@ -14,14 +14,7 @@ _R=_R or debug.getregistry()
 
 
 if type(Vector(0,0,0))=="userdata" then
-	
-	-- also fixing here
-	if CLIENT then
-		print=function(...) 
-			MsgC(Color(255,255,255,255),...)
-		end
-	end
-	
+
 	local _type=type
 	type=function(x)
 		local ot=_type(x)
@@ -49,6 +42,15 @@ if type(Vector(0,0,0))=="userdata" then
 			return "Entity"
 		end
 	end
+	
+	-- also fixing here
+	if CLIENT then
+		local t={r=255,g=255,b=255,a=255}
+		_G.print=function(...)
+			MsgC(t,...)
+		end
+	end
+	
 end
 
 
