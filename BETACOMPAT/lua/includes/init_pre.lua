@@ -62,7 +62,7 @@ if CLIENT then
 		local a={...}
 		local alen=#a 
 		for i=0,alen-2 do i=alen-i table.insert(a,i,"\t") end
-		MsgC(col,unpack(t),"\n")
+		MsgC(col,unpack(a),"\n")
 	end
 end
 
