@@ -12,8 +12,9 @@ _R.Entity.SetModelScale = function(ent,scale,time,x)
 			matrix:Scale(Vector(scale.y, scale.x, scale.z))
 		end
 		ent:EnableMatrix("RenderMultiply", matrix)
+	else
+		error"Invalid parameters"
 	end
-	error"Invalid parameters"
 end
 
 
