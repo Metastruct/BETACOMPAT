@@ -115,4 +115,4 @@ function IsMounted( name )
 
 end*/
 
-lua_run Msg"[Lua] "print("Initialized "..tostring(jit.version).." on "..jit.os)
+Msg"[Lua] "print("Initialized "..tostring(jit.version).." on "..jit.os)
