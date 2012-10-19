@@ -3,7 +3,6 @@
 # should never change. Instead we send the CRC of this file
 # so the client can load their version - and we know it's kewl.
 #
-lua\autorun\options_menu.lua
 lua\autorun\utilities_menu.lua
 lua\postprocess\color_modify.lua
 lua\postprocess\bloom.lua
@@ -199,6 +198,7 @@ lua\autorun\properties\npc_scale.lua
 lua\autorun\game_dod.lua
 lua\autorun\game_ep2.lua
 lua\autorun\game_hl2.lua
+lua\autorun\game_css.lua
 lua\autorun\menubar.lua
 lua\autorun\properties.lua
 lua\autorun\client\demo_recording.lua
