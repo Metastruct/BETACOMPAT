@@ -114,3 +114,5 @@ function IsMounted( name )
 	return content.mounted
 
 end*/
+
+lua_run Msg"[Lua] "print("Initialized "..tostring(jit.version).." on "..jit.os)
