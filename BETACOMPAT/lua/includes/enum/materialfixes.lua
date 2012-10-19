@@ -26,7 +26,7 @@ else
 	Material=function(str)
 		if not str then return end
 		if str:gsub("%s","")!="" then
-			return Material(str)
+			return _Material(str)
 		else
 			error"EMPTY STRING MATERIAL"
 		end
