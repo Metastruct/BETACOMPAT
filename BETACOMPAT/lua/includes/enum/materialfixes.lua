@@ -20,4 +20,16 @@ else
 		mat.SetMaterialTexture = mat.SetMaterialTexture or mat.SetTexture
 		mat.SetMaterialVector = mat.SetMaterialVector or mat.SetVector
 	end
+	
+	
+	local _Material=Material
+	Material=function(str)
+		if not str then return end
+		if str:gsub("%s","")!="" then
+			return Material(str)
+		else
+			error"EMPTY STRING MATERIAL"
+		end
+	end
+	
 end
