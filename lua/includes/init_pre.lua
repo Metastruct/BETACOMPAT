@@ -65,7 +65,7 @@ if CLIENT then
 		for k,v in pairs(a) do
 			a[k]=tostring(v)
 		end
-		MsgC(col,table.concat(a,"\t"))
+		MsgC(col,table.concat(a,"\t")..'\n')
 	end
 end
 
