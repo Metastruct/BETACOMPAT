@@ -6,8 +6,14 @@ _R.Entity.SetModelScale = function(ent,scale,time,x)
 	end
 	if scale and scale.x and scale.y and scale.z then
 		local matrix=Matrix()
-		matrix:Scale(scale)
+		if ent:GetBoneName(0) == "static_prop" then
+			matrix:Scale(scale)
+		else
+			matrix:Scale(Vector(scale.y, scale.x, scale.z))
+		end
 		ent:EnableMatrix("RenderMultiply", matrix)
 	end
 	error"Invalid parameters"
 end
+
+
