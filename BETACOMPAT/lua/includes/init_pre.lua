@@ -239,11 +239,11 @@ end
 
 -- FIX ASAP
 local _Vector=Vector
-Vector=function(x,y,z) return y==nil and type(x)=="number" and _Vector(1,1,1) or _Vector(x,y,z) end 
+Vector=function(x,y,z) return y==nil and type(x)=="number" and _Vector(1,1,1) or _Vector(x or 0,y or 0,z or 0) end 
 
 -- FIX SOON
 local _Angle=Angle
-Angle=function(p,y,r) return y==nil and type(p)=="number" and _Angle(1,1,1) or _Angle(p,y,r) end 
+Angle=function(p,y,r) return y==nil and type(p)=="number" and _Angle(1,1,1) or _Angle(p or 0,y or 0,r or 0) end 
 
 /*
 Removed ents.Create clientside
