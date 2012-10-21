@@ -128,7 +128,6 @@ lua\includes\modules\construct.lua
 lua\includes\modules\list.lua
 lua\includes\modules\cvars.lua
 lua\includes\modules\http.lua
-lua\includes\modules\glon.lua
 lua\includes\modules\draw.lua
 lua\includes\modules\markup.lua
 lua\includes\modules\effects.lua

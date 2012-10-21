@@ -1,3 +1,4 @@
+AddCSLuaFile()
 require "glon"
 
 local function split(str,d)

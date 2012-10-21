@@ -1,24 +1,4 @@
--- GLON: Garry's Mod Lua Object Notation
--- A extension of LON: Lua Object Notation
--- Made entirely by Deco Da Man
--- Types:
-	-- 2: table
-	-- 3: array
-	-- 4: fasle boolean
-	-- 5: true boolean
-	-- 6: number (NOT COMPRESSED, it isn't worth it)
-	-- 7: string
-	---- non-LON types start here!
-	-- 8: Vector (NOT COMPRESSED, it isn't worth it)
-	-- 9: Angle (NOT COMPRESSED, it isn't worth it)
-	-- 10: Entity (Can do players, vehicles, npcs, weapons and any other type of entity (-1 for null entity))
-	-- 11: Player (By UserID)
-	-- 12: CEffectData
-	-- 13: ConVar (Not ClientConVar)
-	-- 15: Color
-	-- 254: The number equal to -math.huge (tostring(math.huge) == "-1.#INF")
-	-- 254: The number equal to math.huge (tostring(math.huge) == "1.#INF")
-	-- 255: reference (Sends the ID of the table to use (for "local t = {} t.a=t"))
+AddCSLuaFile()
 local pairs = pairs
 local type = type
 local string = string
