@@ -1,5 +1,6 @@
 if SERVER then
 	AddCSLuaFile("language_add.lua")
+	return
 end
 local language_Add=language.Add
 language.Add=function(id,text,...)
