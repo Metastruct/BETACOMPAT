@@ -26,7 +26,14 @@ end
 surface.CreateFont("Tahoma",16,500,false,false,"CloseCaption_Italic",false,false)
 surface.CreateFont("Lucida Console",10,0,false,false,"DefaultFixedDropShadow",true,false)
 surface.CreateFont("Tahoma",16,500,false,false,"DefaultUnderline",false,false)
-surface.CreateFont("Tahoma",12,1000,false,false,"UiBold",false,false)
+--surface.CreateFont("Tahoma",12,1000,false,false,"UiBold",false,false)
+surface.CreateFont('UiBold',{
+	font = 'Tahoma',
+	size = 12,
+	weight = 700,
+	antialias = false,
+})
+
 surface.CreateFont("HalfLife2",120,400,true,true,"TitleFont2",false,false)
 surface.CreateFont("Lucida Console",10,500,false,false,"ConsoleText",false,false)
 surface.CreateFont("Courier New",7,500,true,true,"DebugFixedSmall",false,false)
