@@ -12,6 +12,10 @@ _G._DEBUG=true
 LUA_PATH=LUA_PATH or "LUA"
 _R=_R or debug.getregistry()
 
+if _G.VERSION<151 then 
+	_G.VERSION=156
+end
+
 local _require=require
 require=function(m,...)
 	local ok,ret=pcall(_require,m,...)

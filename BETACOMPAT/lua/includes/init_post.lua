@@ -169,4 +169,4 @@ function IsMounted( name )
 
 end*/
 
-Msg"[Lua] "print("Initialized "..tostring(jit.version).." on "..jit.os)
+Msg"[Lua] " print("Initialized GMod "..tostring(VERSION).." with "..tostring(jit and jit.version or "no LuaJit").." on "..(jit and jit.os or "??") )
