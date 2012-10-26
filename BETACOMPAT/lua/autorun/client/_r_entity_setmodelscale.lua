@@ -1,8 +1,8 @@
 local _R_Entity_SetModelScale=_R.Entity.SetModelScale
-_R.Entity.SetModelScale = function(ent,scale,time,x)
-	time=time or 0.1
+_R.Entity.SetModelScale = function(ent,scale,time,...)
+	time=time or 0
 
-	if scale and scale.x and scale.y and scale.z then
+	if type(scale) == "Vector" then
 		local matrix=Matrix()
 		if ent:GetBoneName(0) == "static_prop" then
 			matrix:Scale(scale)
@@ -13,7 +13,7 @@ _R.Entity.SetModelScale = function(ent,scale,time,x)
 		return
 	end
 	
-	return _R_Entity_SetModelScale(ent,scale,time,x)
+	return _R_Entity_SetModelScale(ent,scale,time,...)
 end
 
 
