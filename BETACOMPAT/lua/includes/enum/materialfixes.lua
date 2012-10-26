@@ -25,11 +25,10 @@ else
 	local _Material=Material
 	Material=function(str)
 		if not str then return end
-		if str:gsub("%s","")!="" then
-			return _Material(str)
-		else
-			error"EMPTY STRING MATERIAL"
+		if str:gsub("%s","")=="" then
+			ErrorNoHalt"EMPTY STRING MATERIAL\n"
 		end
+		return _Material(str)
 	end
 	
 end
