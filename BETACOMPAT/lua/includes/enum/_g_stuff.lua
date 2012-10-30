@@ -7,3 +7,4 @@ IsDedicatedServer=IsDedicatedServer or game.IsDedicated or function() return tru
 SinglePlayer=SinglePlayer or game.SinglePlayer or function() return false end
 MaxPlayers = MaxPlayers or game.MaxPlayers or function() return 32 end
 WorldSound=WorldSound or sound and sound.Play or function() error"EEK" end
+IsVector=IsVector or isvector
