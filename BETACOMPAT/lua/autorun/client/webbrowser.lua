@@ -136,6 +136,7 @@ function PANEL:Think(w,h)
 		--print("WAS LOADING")
 		self.browser:QueueJavascript[[gmod.LoadedURL(document.location.href,document.title); gmod.status(""); ]]
 		self.browser:QueueJavascript[[function alert(str) { console.log("Alert: "+str); }]]
+		self.browser:QueueJavascript[[if (!document.body.style.background) { document.body.style.background = 'white'; }; void 0;]]
 		self.browser:QueueJavascript[[
 			function getLink() {
 				gmod.status(this.href || "-");
