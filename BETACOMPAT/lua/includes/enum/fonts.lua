@@ -4,10 +4,14 @@ if SERVER then
 end
 
 local surface_CreateFont=surface.CreateFont
-surface.CreateFont=function(font_name, size, weight, antialias, additive, new_font_name, shadow, outline, blursize, scan, ... )
-	if type(size)=="table" then return surface_CreateFont(font_name, size, weight, antialias, additive, new_font_name, shadow, outline, blursize, scan, ... ) end
-	surface_CreateFont(new_font_name,
-	{
+local fonts={}
+surface.CreateFont=function( font_name, size, weight, antialias, additive, new_font_name, shadow, outline, blursize, scanlines, ... )
+	if type(size)=="table" then
+		fonts[font_name]=size
+		return surface_CreateFont(font_name, size, weight, antialias, additive, new_font_name, shadow, outline, blursize, scanlines, ... ) 
+	end
+	
+	local tbl = {
 		size=size,
 		weight=weight,
 		antialias=antialias, 
@@ -16,8 +20,10 @@ surface.CreateFont=function(font_name, size, weight, antialias, additive, new_fo
 		shadow=shadow, 
 		outline=outline,
 		blursize=blursize, 
-		scanlines=scan 
-	})
+		scanlines=scanlines 
+	}
+	fonts[font_name]=tbl
+	return surface_CreateFont(new_font_name,tbl)
 end
 
 
@@ -55,16 +61,10 @@ surface.CreateFont("Trebuchet MS",44,900,false,false,"HUDNumber4",false,false)
 surface.CreateFont("Trebuchet MS",45,900,false,false,"HUDNumber5",false,false)
 surface.CreateFont("Verdana",16,600,true,true,"MenuLarge",false,false)
 surface.CreateFont('UiBold',{font = 'Tahoma',	size = 12,	weight = 700,	antialias = false,})
-
-_G.missingfonts={}
-local missingfonts=missingfonts
-local surface_SetFont=surface.SetFont
-local surface_GetTextSize=surface.GetTextSize
-surface.SetFont=function(f)
-	surface_SetFont(f)
-	if surface_GetTextSize"." then
-		return
-	end
-	missingfonts[f]=true
-	surface_SetFont"Default"
-end
+surface.CreateFont("coolvetica", 48, 500, true, false, "ScoreboardHead" )
+surface.CreateFont("coolvetica", 24, 500, true, false, "ScoreboardSub" )
+surface.CreateFont("Tahoma", 16, 1000, true, false, "ScoreboardText" )
+surface.CreateFont("coolvetica", 19, 500, true, false, "ScoreboardPlayerName" )
+surface.CreateFont("coolvetica", 22, 500, true, false, "ScoreboardPlayerNameBig" )
+surface.CreateFont("coolvetica", 32, 500, true, false, "ScoreboardHeader" )
+surface.CreateFont("coolvetica", 22, 500, true, false, "ScoreboardSubtitle" )
