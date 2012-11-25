@@ -66,7 +66,7 @@ end
 ---------------------------------------------------------*/
 function PANEL:ApplySchemeSettings()
 
-	derma.SkinHook( "Scheme", "SysButton", self )
+	self:SetFont( "Marlett" )
 
 end
 
