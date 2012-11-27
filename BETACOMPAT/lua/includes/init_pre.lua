@@ -63,11 +63,12 @@ end
 if CLIENT then
 	local col={r=255,g=255,b=255,a=255}
 	_G.print=function(...)
-		local a={...}
-		--local alen=#a 
-		--for i=0,alen-2 do i=alen-i table.insert(a,i,"\t") end
-		for k,v in pairs(a) do
-			a[k]=tostring(v)
+		local a={}
+		for i=1,select('#',...) do
+			local v=select(i,...)
+			v=tostring(v) or "no value"
+			a[i]=v	
+		
 		end
 		MsgC(col,table.concat(a,"\t")..'\n')
 	end
