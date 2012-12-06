@@ -16,6 +16,7 @@ include ( "extensions/table.lua" )
 include ( "extensions/util.lua" )
 include ( "extensions/vector.lua" )
 include ( "extensions/game.lua" )
+include ( "extensions/motionsensor.lua" )
 
 if ( CLIENT ) then
 
