@@ -1,7 +1,5 @@
 #
-# These files aren't filly sent to the client because they
-# should never change. Instead we send the CRC of this file
-# so the client can load their version - and we know it's kewl.
+# A list of files that need to be sent to the client, but we're too lazy to AddCSLuaFile
 #
 lua\autorun\utilities_menu.lua
 lua\postprocess\color_modify.lua
@@ -9,7 +7,6 @@ lua\postprocess\bloom.lua
 lua\postprocess\dof.lua
 lua\postprocess\super_dof.lua
 lua\postprocess\frame_blend.lua
-lua\postprocess\morph.lua
 lua\postprocess\texturize.lua
 lua\postprocess\toytown.lua
 lua\postprocess\motion_blur.lua
@@ -159,6 +156,7 @@ lua\includes\extensions\ents.lua
 lua\includes\extensions\util.lua
 lua\includes\extensions\angle.lua
 lua\includes\extensions\game.lua
+lua\includes\extensions\motionsensor.lua
 lua\includes\extensions\vector.lua
 lua\includes\extensions\client\entity.lua
 lua\includes\extensions\client\globals.lua

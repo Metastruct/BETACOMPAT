@@ -1,7 +1,6 @@
 include "init_pre.lua" AddCSLuaFile "init_pre.lua" 
 
 
-
 --[[---------------------------------------------------------
 	Non-Module includes
 -----------------------------------------------------------]]
@@ -50,8 +49,8 @@ include ( "drive/drive_noclip.lua" )
 
 if ( SERVER ) then
 
-	require ( "ai_schedule" )
-	require ( "ai_task" )
+	require( "ai_task" )
+	require( "ai_schedule" )
 	include( "util/entity_creation_helpers.lua" )
 
 end
@@ -111,6 +110,7 @@ include ( "extensions/table.lua" )
 include ( "extensions/util.lua" )
 include ( "extensions/vector.lua" )
 include ( "extensions/game.lua" )
+include ( "extensions/motionsensor.lua" )
 
 if ( CLIENT ) then
 
@@ -123,7 +123,6 @@ if ( CLIENT ) then
 	require ( "search" )
 
 end
-
 
 
 
