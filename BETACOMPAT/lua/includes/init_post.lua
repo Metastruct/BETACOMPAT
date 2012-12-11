@@ -52,6 +52,7 @@ end
 
 -- get is missing nowadays, sigh?
 http.Get=function(url,head,func,...)
+	assert(not not func)
 	local t={...}
 	local function Fail( body, length, headers, responsecode )
 		if #t>0 then
