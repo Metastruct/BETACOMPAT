@@ -44,9 +44,7 @@ end
 
 
 function debug.Trace()
-
-	ErrorNoHalt(debug.traceback())
-	  
+	ErrorNoHalt(debug.traceback("",2):sub(2,-1))
 end
 
 
