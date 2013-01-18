@@ -111,24 +111,6 @@ function AccessorFuncNW( tab, varname, name, varDefault, iForce )
 
 end
 
-local tonumber=tonumber
-function Color( r, g, b, a )
-	if type(b)!="number" then error("Invalid type to Color(): "..tostring(type(b)),2) end
-	r=r or 255
-	g=g or 255
-	b=b or 255
-	a=a or 255
-	
-	r=r>255 and 255 or r
-	g=g>255 and 255 or g
-	b=b>255 and 255 or b
-	a=a>255 and 255 or a
-	return { 	r = r, 
-				g = g, 
-				b = b, 
-				a = a }
-end
-
 
 
 /*
