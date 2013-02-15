@@ -1,2 +1,0 @@
-jit.off() 
-jit.flush()
