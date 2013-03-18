@@ -12,53 +12,6 @@ _G._DEBUG=true
 LUA_PATH=LUA_PATH or "LUA"
 _R=_R or debug.getregistry()
 
-if _G.VERSION<151 then 
-	_G.VERSION=156
-end
-
-local _require=require
-require=function(m,...)
-	local ok,ret=pcall(_require,m,...)
-	if ok then return ret or true end
-	-- TODO: Add module info
-end
-
-if type(Vector(0,0,0))=="userdata" then
-
-	local _type=type
-	type=function(x)
-		local ot=_type(x)
-		if ot!="userdata" then
-			return ot
-		end
-		if x.x and x.y and x.z then
-			return "Vector"
-		end
-		if x.p and x.y and x.r then
-			return "Angle"
-		end
-		if x.IsValid then
-			if x.SizeToContents then
-				return "Panel"
-			end
-			if x.ComputeShadowControl then
-				return "PhysObj"
-			end
-			if x.IsPlayer and x:IsPlayer() then
-				return "Player"
-			end
-			if x.IsNPC and x:IsNPC() then
-				return "NPC"
-			end
-			if x:IsValid() then
-				return "Entity"
-			end
-			return "Entity"
-		end
-	end
-	
-end
-
 -- also fixing here
 if CLIENT then
 	local col={r=255,g=255,b=255,a=255}
