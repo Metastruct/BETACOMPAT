@@ -16,26 +16,7 @@ IsVector=IsVector or isvector
 
 
 if SERVER then
-	resource.AddFile("materials/console/gmod_logo.vmt")
-	resource.AddFile("materials/gui/silkicons/box.vmt")
-else
-	local mat = _R.IMaterial
-	if mat then 
-		mat.GetMaterialMatrix = mat.GetMaterialMatrix or mat.GetMatrix
-		mat.GetMaterialVector = mat.GetMaterialVector or mat.GetVector
-		mat.SetMaterialMatrix = mat.SetMaterialMatrix or mat.SetMatrix
-		mat.GetMaterialFloat = mat.GetMaterialFloat or mat.GetFloat
-		mat.GetMaterialInt = mat.GetMaterialInt or mat.GetInt
-		mat.GetMaterialString = mat.GetMaterialString or mat.GetString
-		mat.GetMaterialTexture = mat.GetMaterialTexture or mat.GetTexture
-		mat.SetMaterialFloat = mat.SetMaterialFloat or mat.SetFloat
-		mat.SetMaterialInt = mat.SetMaterialInt or mat.SetInt
-		mat.SetMaterialString = mat.SetMaterialString or mat.SetString
-		mat.SetMaterialTexture = mat.SetMaterialTexture or mat.SetTexture
-		mat.SetMaterialVector = mat.SetMaterialVector or mat.SetVector
-	end
-
-	
+	resource.AddFile("materials/console/gmod_logo.vmt")	
 end
 
 
@@ -54,8 +35,8 @@ if CLIENT then -- langoageee stuff
 		if newid then language_Add(newid,text,...) end
 		return language_Add(id,text,...)
 	end
-
 end
+
 if CLIENT then -- fonts
 	local surface_CreateFont=surface.CreateFont
 	local fonts={}

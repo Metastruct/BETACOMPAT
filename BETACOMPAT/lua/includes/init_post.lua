@@ -43,7 +43,7 @@ for k,v in pairs(files) do
 end
 
 
-function debug.Trace()
+debug.Trace = debug.Trace or function()
 	ErrorNoHalt(debug.traceback("",2):sub(2,-1))
 end
 
