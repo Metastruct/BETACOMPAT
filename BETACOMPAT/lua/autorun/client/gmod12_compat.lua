@@ -5,15 +5,10 @@ end
 
 -- ents_Create.lua
 ents.Create=ents.Create or function(ent)
-	if ent!="prop_physics" then error"Cant create entities clientside!" end
+	if ent!="prop_physics" then ErrorNoHalt"Cant create entities clientside using ents.Create!" end
 	return ents.CreateClientProp()
 end
-_ClientsideModel=ClientsideModel
-ClientsideModel=function(mdl) -- ClientsideModel is broken so let's redefine it like this
-	local e = ents.CreateClientProp()
-	e:SetModel(mdl)
-	return e
-end
+
 -- _r_csoundpatch.lua
 local _R_CSoundPatch_ChangeVolume=_R.CSoundPatch.ChangeVolume
 
