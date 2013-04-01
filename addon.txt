@@ -1,5 +1,0 @@
-"AddonInfo"
-{
-	"name"		"betacompat"
-	"info"		"betacompat"
-}
