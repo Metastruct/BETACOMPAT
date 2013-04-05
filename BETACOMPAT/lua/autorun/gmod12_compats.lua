@@ -3,10 +3,6 @@ timer.Remove("CheckHookTimes")
 
 IsVector = isvector
 
--- jit.lua
-jit.off() 
-jit.flush()
-
 -- _r_entity.lua
 local _R_Entity_SetColor=_R.Entity.SetColor
 local Color=Color
