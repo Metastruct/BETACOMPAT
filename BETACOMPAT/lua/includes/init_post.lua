@@ -125,4 +125,8 @@ function IsMounted( name )
 
 end*/
 
-Msg"[Lua] " print("Initialized GMod "..tostring(VERSION).." with "..tostring(jit and jit.version or "no LuaJit").." on "..(jit and jit.os or "??") )
+local withjit=jit and jit.status and jit.status() and " (JIT Enabled)" or " (JIT Disabled)"
+Msg"[Lua] " print("Initialized GMod "..tostring(VERSION).." with "..tostring(jit and jit.version or "no LuaJit").." on "..(jit and jit.os or "??")..withjit)
+
+local t={} for k,v in pairs(engine.GetGames()) do if v.installed and v.owned and v.mounted then table.insert(t,v.folder) end end 
+Msg"[Games Mounted] " print(table.concat(t," "))
