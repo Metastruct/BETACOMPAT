@@ -111,6 +111,8 @@ include ( "extensions/util.lua" )
 include ( "extensions/vector.lua" )
 include ( "extensions/game.lua" )
 include ( "extensions/motionsensor.lua" )
+include ( "extensions/weapon.lua" )
+include ( "extensions/coroutine.lua" )
 
 if ( CLIENT ) then
 
