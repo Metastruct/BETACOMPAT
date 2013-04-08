@@ -1,3 +1,6 @@
+if SERVER then
+	AddCSLuaFile()
+end
 
 --
 -- Seed the rand!
