@@ -96,7 +96,6 @@ lua\vgui\slidebar.lua
 lua\vgui\spawnicon.lua
 lua\vgui\vgui_panellist.lua
 lua\skins\default.lua
-lua\includes\util.lua
 lua\includes\util\sql.lua
 lua\includes\modules\baseclass.lua
 lua\includes\modules\net.lua
