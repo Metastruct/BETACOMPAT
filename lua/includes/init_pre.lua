@@ -1,3 +1,5 @@
+_G.start_garbage = collectgarbage"count" -- let's see how much garry fucks us
+
 if SERVER then
 	AddCSLuaFile("init.lua")
 	AddCSLuaFile("init_pre.lua")
