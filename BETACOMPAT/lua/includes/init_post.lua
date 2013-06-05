@@ -31,6 +31,8 @@ if ( CLIENT ) then
 end
 
 ------------------------------------------
+-- fu
+AddCSLuaFile"includes/extensions/file.lua"
 ------------------------------------------
 include=_include
 
