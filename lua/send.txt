@@ -150,7 +150,6 @@ lua\includes\extensions\player_auth.lua
 lua\includes\extensions\string.lua
 lua\includes\modules\halo.lua
 lua\includes\extensions\table.lua
-lua\includes\extensions\file.lua
 lua\includes\extensions\ents.lua
 lua\includes\extensions\util.lua
 lua\includes\extensions\angle.lua
