@@ -49,7 +49,6 @@ local fixtable={
  ["dlabel"]="DLabel",
  ["dbutton"]="DButton",
  ["dtree"]="DTree",
- ["HTML"]="DHTML", -- HTML crashes
 }
 
 vgui.Create=function(a,...)
