@@ -227,3 +227,7 @@ GetAddonList=GetAddonList or engine.GetAddons
 GetAddonInfo=GetAddonInfo or function() return {} end
 GetMountableContent=GetMountableContent or function() return {} end
 GetMountedContent=GetMountedContent or function() return {} end
+
+resource = resource or {}
+resource.AddFile = resource.AddFile or function() end
+resource.AddSingleFile = resource.AddSingleFile or function() end
