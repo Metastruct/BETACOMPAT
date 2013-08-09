@@ -39,15 +39,13 @@ end
 
 if CLIENT then -- fonts
 
-	local cl_devfonts = CreateClientConVar("cl_devfonts","0",true,false)
 
 	local surface_CreateFont = surface.CreateFont
 	surface.CreateFont = function(n,...) 
 
 		local ok = pcall(surface.SetFont,n)
 
-		if ok and not cl_devfonts:GetBool() then 
-			Msg"[Font] "print("Not recreating font "..tostring(n)..' (cl_devfonts is 0)')
+		if ok and not _G.FONT_CANCREATE then 
 			return n
 		end
 		
