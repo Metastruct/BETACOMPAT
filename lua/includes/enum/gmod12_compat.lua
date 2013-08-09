@@ -38,8 +38,29 @@ if CLIENT then -- langoageee stuff
 end
 
 if CLIENT then -- fonts
+
+	local cl_devfonts = CreateClientConVar("cl_devfonts","0",true,false)
+
+	local surface_CreateFont = surface.CreateFont
+	surface.CreateFont = function(n,...) 
+
+		local ok = pcall(surface.SetFont,n)
+
+		if ok and not cl_devfonts:GetBool() then 
+			Msg"[Font] "print("Not recreating font "..tostring(n)..' (cl_devfonts is 0)')
+			return n
+		end
+		
+		return surface_CreateFont(n,...) or n -- :v
+		
+	end
+
+	
+	
+	
 	local surface_CreateFont=surface.CreateFont
 	local fonts={}
+	_G.luafonts=fonts
 	surface.CreateFont=function( font_name, size, weight, antialias, additive, new_font_name, shadow, outline, blursize, scanlines, ... )
 		if type(size)=="table" then
 			fonts[font_name]=size
