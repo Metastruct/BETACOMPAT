@@ -3,6 +3,16 @@ function GetControlPanel( strName )
 	return controlpanel.Get( strName )
 end
 
+
+
+
+
+
+
+
+
+
+
 -- ents_Create.lua
 ents.Create=ents.Create or function(ent)
 	if ent!="prop_physics" then ErrorNoHalt"Cant create entities clientside using ents.Create!" end
@@ -75,3 +85,47 @@ end
 timer.Simple(0,function() 
 	_G.FONT_CANCREATE = true
 end)
+
+
+
+
+
+local vgui_Create=vgui.Create
+local tbl=setmetatable({},{__mode='v'})
+vgui.Create=function(ctrl,...)
+	
+	local ret = vgui_Create(ctrl,...)
+	if ctrl=="Awesomium" --[[or ctrl=="CAwsHTML"]] then
+		table.insert(tbl,ret)
+	end
+	return ret
+end
+
+local Panel=FindMetaTable"Panel"
+
+local Panel_OpenURL=Panel.OpenURL
+Panel.OpenURL=function(pnl,url,...)
+	pnl.__openurl = url
+	return Panel_OpenURL(pnl,url,...)
+end
+
+concommand.Add("awesomium_list",function()
+	for k,v in pairs(tbl) do
+		Msg(k,":\t ")
+		if ValidPanel(v) then
+			print(v,v.__openurl)
+			Msg("\tParent: ",v:GetParent())
+		else
+			print"Not GC'd"
+		end
+	end
+end)
+
+concommand.Add("awesomium_kill",function(_,_,_,c)
+	for k,v in pairs(tbl) do
+		if k==tonumber(c) then
+			v:Remove()
+		end
+	end
+end)
+
