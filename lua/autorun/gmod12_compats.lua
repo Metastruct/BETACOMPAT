@@ -73,7 +73,10 @@ if CLIENT then
 	   GetConVar ("sv_allowcslua"):GetBool() then
 		Msg"[CAutorun] "print"Loading clientside autorun files!"
 		for _, files in pairs(file.Find("lua/autorun/*.lua", "GAME")) do
-			include("autorun/" .. files)
+			local f = files:lower()
+			if not f:find("sbep",1,true) and not f:find("ulib_",1,true)	then
+				include("autorun/" .. files)
+			end
 		end
 	end
 end

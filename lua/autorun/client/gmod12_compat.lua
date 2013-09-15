@@ -78,7 +78,10 @@ if lua_load_own_files:GetBool() and -- TODO: RECURSION
 	Msg"[CAutorun] "print"Loading clientside autorun files!"
 	
 	for _, files in pairs(file.Find("lua/autorun/client/*.lua", "GAME")) do
-		include("autorun/client/" .. files)
+		local f = files:lower()
+		if not f:find("sbep",1,true) and not f:find("ulib_",1,true)	then
+			include("autorun/client/" .. files)
+		end
 	end
 end
 
