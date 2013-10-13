@@ -8,7 +8,7 @@ include ( "extensions/angle.lua" )
 include ( "extensions/debug.lua" )
 include ( "extensions/entity.lua" )
 include ( "extensions/ents.lua" )
-include ( "extensions/math.lua" )	
+include ( "extensions/math.lua" )
 include ( "extensions/player.lua" )
 include ( "extensions/player_auth.lua" )
 include ( "extensions/string.lua" )
@@ -104,5 +104,5 @@ end*/
 local withjit=jit and jit.status and jit.status() and " (JIT Enabled)" or " (JIT Disabled)"
 Msg"[Lua] " print("Initialized GMod "..tostring(VERSION).." with "..tostring(jit and jit.version or "no LuaJit").." on "..(jit and jit.os or "??")..withjit)
 
-local t={} for k,v in pairs(engine.GetGames()) do if v.installed and v.owned and v.mounted then table.insert(t,v.folder) end end 
+local t={} for k,v in pairs(engine.GetGames()) do if v.installed and v.owned and v.mounted then table.insert(t,v.folder) end end
 Msg"[Games Mounted] " print(table.concat(t," "))

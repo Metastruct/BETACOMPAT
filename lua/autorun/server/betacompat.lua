@@ -7,7 +7,7 @@ function util.IsValidPhysicsObject( ent, num )
 	if ( !ent || (!ent:IsValid() && !ent:IsWorld()) ) then return false end
 
 	-- This is to stop attaching to walking NPCs.
-	-- Although this is possible and `works', it can severly reduce the 
+	-- Although this is possible and `works', it can severly reduce the
 	-- performance of the server.. Plus they don't pay attention to constraints
 	-- anyway - so we're not really losing anything.
 	

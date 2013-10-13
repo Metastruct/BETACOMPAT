@@ -1,12 +1,12 @@
-include "init_pre.lua" AddCSLuaFile "init_pre.lua" 
+include "init_pre.lua" AddCSLuaFile "init_pre.lua"
 --AddCSLuaFile()
 
 --[[---------------------------------------------------------
 	Non-Module includes
 -----------------------------------------------------------]]
 
-include ( "util.lua" )			-- Misc Utilities	
-include ( "util/sql.lua" )		-- Include sql here so it's 
+include ( "util.lua" )			-- Misc Utilities
+include ( "util/sql.lua" )		-- Include sql here so it's
 								-- available at loadtime to modules.
 
 --[[---------------------------------------------------------
@@ -28,7 +28,7 @@ require ( "undo" )
 require ( "cleanup" )
 require ( "duplicator" )
 require ( "constraint" )
-require ( "construct" )	
+require ( "construct" )
 require ( "usermessage" )
 require ( "list" )
 require ( "cvars" )
@@ -75,7 +75,7 @@ if ( CLIENT ) then
 	
 	include( "util/model_database.lua" )	-- Store information on models as they're loaded
 	include( "util/vgui_showlayout.lua" ) 	-- VGUI Performance Debug
-	include( "util/tooltips.lua" )	
+	include( "util/tooltips.lua" )
 	include( "util/client.lua" )
 	include( "util/javascript_util.lua" )
 	include( "util/workshop_files.lua" )
@@ -93,7 +93,7 @@ include( "gmsave.lua" )
 	Extensions
 	
 	Load extensions that we specifically need for the menu,
-	to reduce the chances of loading something that might 
+	to reduce the chances of loading something that might
 	cause errors.
 -----------------------------------------------------------]]
 
@@ -102,7 +102,7 @@ include ( "extensions/angle.lua" )
 include ( "extensions/debug.lua" )
 include ( "extensions/entity.lua" )
 include ( "extensions/ents.lua" )
-include ( "extensions/math.lua" )	
+include ( "extensions/math.lua" )
 include ( "extensions/player.lua" )
 include ( "extensions/player_auth.lua" )
 include ( "extensions/string.lua" )

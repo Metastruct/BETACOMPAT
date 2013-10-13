@@ -235,7 +235,7 @@ end
 --[[---------------------------------------------------------
 	Universal function to filter out crappy models by name
 -----------------------------------------------------------]]
-function UTIL_IsUselessModel( modelname ) 
+function UTIL_IsUselessModel( modelname )
 
 	local modelname = modelname:lower()
 
@@ -315,14 +315,14 @@ end
 -----------------------------------------------------------]]
 function TimedSin(freq,min,max,offset)
 	return math.sin(freq * math.pi * 2 * CurTime() + offset) * (max-min) * 0.5 + min
-end 
+end
 
 --[[---------------------------------------------------------
 	From Simple Gamemode Base (Rambo_9)
 -----------------------------------------------------------]]
 function TimedCos(freq,min,max,offset)
 	return math.cos(freq * math.pi * 2 * CurTime() + offset) * (max-min) * 0.5 + min
-end 
+end
 
 --[[---------------------------------------------------------
 	IsEnemyEntityName
@@ -396,7 +396,7 @@ end
 --[[---------------------------------------------------------
 	Replacement for C++'s iff ? aa : bb
 -----------------------------------------------------------]]
-function Either( iff, aa, bb ) 
+function Either( iff, aa, bb )
 
 	if ( iff ) then return aa end
 	return bb

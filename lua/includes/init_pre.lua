@@ -22,7 +22,7 @@ if CLIENT then
 		for i=1,select('#',...) do
 			local v=select(i,...)
 			v=tostring(v) or "no value"
-			a[i]=v	
+			a[i]=v
 		
 		end
 		MsgC(col,table.concat(a,"\t")..'\n')
@@ -53,7 +53,7 @@ end
 		end
 	end
 
-file.TimeBeta =	file.Time 
+file.TimeBeta =	file.Time
 				file.Time=
 	function(name,where,...)
 		if where==nil or where==false then
@@ -199,11 +199,11 @@ end
 
 -- FIX ASAP
 local _Vector=Vector
-Vector=function(x,y,z) return y==nil and type(x)=="number" and _Vector(1,1,1) or _Vector(x or 0,y or 0,z or 0) end 
+Vector=function(x,y,z) return y==nil and type(x)=="number" and _Vector(1,1,1) or _Vector(x or 0,y or 0,z or 0) end
 
 -- FIX SOON
 local _Angle=Angle
-Angle=function(p,y,r) return y==nil and type(p)=="number" and _Angle(1,1,1) or _Angle(p or 0,y or 0,r or 0) end 
+Angle=function(p,y,r) return y==nil and type(p)=="number" and _Angle(1,1,1) or _Angle(p or 0,y or 0,r or 0) end
 
 /*
 Removed ents.Create clientside

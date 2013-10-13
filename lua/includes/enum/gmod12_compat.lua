@@ -16,7 +16,7 @@ IsVector=IsVector or isvector
 
 
 if SERVER then
-	resource.AddFile("materials/console/gmod_logo.vmt")	
+	resource.AddFile("materials/console/gmod_logo.vmt")
 end
 
 
@@ -41,11 +41,11 @@ if CLIENT then -- fonts
 
 
 	local surface_CreateFont = surface.CreateFont
-	surface.CreateFont = function(n,...) 
+	surface.CreateFont = function(n,...)
 
 		local ok = pcall(surface.SetFont,n)
 
-		if ok and not _G.FONT_CANCREATE then 
+		if ok and not _G.FONT_CANCREATE then
 			return n
 		end
 		
@@ -62,19 +62,19 @@ if CLIENT then -- fonts
 	surface.CreateFont=function( font_name, size, weight, antialias, additive, new_font_name, shadow, outline, blursize, scanlines, ... )
 		if type(size)=="table" then
 			fonts[font_name]=size
-			return surface_CreateFont(font_name, size, weight, antialias, additive, new_font_name, shadow, outline, blursize, scanlines, ... ) 
+			return surface_CreateFont(font_name, size, weight, antialias, additive, new_font_name, shadow, outline, blursize, scanlines, ... )
 		end
 		
 		local tbl = {
 			size=size,
 			weight=weight,
-			antialias=antialias, 
+			antialias=antialias,
 			additive=additive,
-			font=font_name, 
-			shadow=shadow, 
+			font=font_name,
+			shadow=shadow,
 			outline=outline,
-			blursize=blursize, 
-			scanlines=scanlines 
+			blursize=blursize,
+			scanlines=scanlines
 		}
 		fonts[font_name]=tbl
 		return surface_CreateFont(new_font_name,tbl)
