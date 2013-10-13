@@ -6,7 +6,7 @@ IsVector = isvector
 -- _r_entity.lua
 local _R_Entity_SetColor=_R.Entity.SetColor
 local Color=Color
-_R.Entity.SetColor=function(e,r,g,b,a) 
+_R.Entity.SetColor=function(e,r,g,b,a)
 	return _R_Entity_SetColor(e,g and b and Color(r,g,b,a or 255) or r)
 end
 
@@ -28,7 +28,7 @@ function meta:SetScriptedVehicle( veh )
 
 end
 
-meta.GetCursorAimVector=function(pl) 
+meta.GetCursorAimVector=function(pl)
 	return pl:EyeAngles():Forward()
 end
 

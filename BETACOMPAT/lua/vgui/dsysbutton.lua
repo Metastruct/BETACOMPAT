@@ -24,16 +24,16 @@ function PANEL:SetType( strType )
 
 	self.m_strType = strType
 
-	if ( strType == "close" ) then self:SetChar( "r" ) 
-	elseif ( strType == "grip" ) then self:SetChar( "p" ) 
-	elseif ( strType == "down" ) then self:SetChar( "u" ) 
-	elseif ( strType == "up" ) then self:SetChar( "t" ) 
-	elseif ( strType == "updown" ) then self:SetChar( "v" ) 
-	elseif ( strType == "tick" ) then self:SetChar( "a" ) 
-	elseif ( strType == "right" ) then self:SetChar( "4" ) 
-	elseif ( strType == "left" ) then self:SetChar( "3" ) 
-	elseif ( strType == "question" ) then self:SetChar( "s" ) 
-	elseif ( strType == "none" ) then self:SetChar( "" ) 
+	if ( strType == "close" ) then self:SetChar( "r" )
+	elseif ( strType == "grip" ) then self:SetChar( "p" )
+	elseif ( strType == "down" ) then self:SetChar( "u" )
+	elseif ( strType == "up" ) then self:SetChar( "t" )
+	elseif ( strType == "updown" ) then self:SetChar( "v" )
+	elseif ( strType == "tick" ) then self:SetChar( "a" )
+	elseif ( strType == "right" ) then self:SetChar( "4" )
+	elseif ( strType == "left" ) then self:SetChar( "3" )
+	elseif ( strType == "question" ) then self:SetChar( "s" )
+	elseif ( strType == "none" ) then self:SetChar( "" )
 	end
 
 end

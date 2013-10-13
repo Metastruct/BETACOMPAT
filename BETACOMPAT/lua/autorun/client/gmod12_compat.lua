@@ -85,7 +85,7 @@ if lua_load_own_files:GetBool() and -- TODO: RECURSION
 	end
 end
 
-timer.Simple(0,function() 
+timer.Simple(0,function()
 	_G.FONT_CANCREATE = true
 end)
 

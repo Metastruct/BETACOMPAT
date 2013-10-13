@@ -293,7 +293,7 @@ decode_types = {
 		local ent = Entity(decode_types[6](reader))
 		local bone = decode_types[6](reader)
 		
-		if ( !IsValid( ent ) ) then return nil end;	
+		if ( !IsValid( ent ) ) then return nil end;
 		return ent:GetPhysicsObjectNum( bone )
 	end,
 	[15 ] = function(reader) -- Color
