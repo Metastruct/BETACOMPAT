@@ -234,12 +234,12 @@ resource.AddSingleFile = resource.AddSingleFile or function() end
 
 if CLIENT and system.IsLinux() then
 	local replacements = {
-		"Tahoma" = "sans-serif"
+		["tahoma"] = "sans-serif"
 	}
 
 	local surface_CreateFont = surface.CreateFont
 
 	function surface.CreateFont(name, ...)
-		return surface_CreateFont(replacements[name] or name, ...)
+		return surface_CreateFont(replacements[type(name) == "string" and name:lower() or nil] or name, ...)
 	end
 end
