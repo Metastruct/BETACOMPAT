@@ -231,3 +231,15 @@ GetMountedContent=GetMountedContent or function() return {} end
 resource = resource or {}
 resource.AddFile = resource.AddFile or function() end
 resource.AddSingleFile = resource.AddSingleFile or function() end
+
+if CLIENT and system.IsLinux() then
+	local replacements = {
+		"Tahoma" = "sans-serif"
+	}
+
+	local surface_CreateFont = surface.CreateFont
+
+	function surface.CreateFont(name, ...)
+		return surface_CreateFont(replacements[name] or name, ...)
+	end
+end
