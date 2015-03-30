@@ -1,4 +1,24 @@
-AddCSLuaFile()
+-- GLON: Garry's Mod Lua Object Notation
+-- A extension of LON: Lua Object Notation
+-- Made entirely by Deco Da Man
+-- Types:
+	-- 2: table
+	-- 3: array
+	-- 4: fasle boolean
+	-- 5: true boolean
+	-- 6: number (NOT COMPRESSED, it isn't worth it)
+	-- 7: string
+	---- non-LON types start here!
+	-- 8: Vector (NOT COMPRESSED, it isn't worth it)
+	-- 9: Angle (NOT COMPRESSED, it isn't worth it)
+	-- 10: Entity (Can do players, vehicles, npcs, weapons and any other type of entity (-1 for null entity))
+	-- 11: Player (By UserID)
+	-- 12: CEffectData
+	-- 13: ConVar (Not ClientConVar)
+	-- 15: Color
+	-- 254: The number equal to -math.huge (tostring(math.huge) == "-1.#INF")
+	-- 254: The number equal to math.huge (tostring(math.huge) == "1.#INF")
+	-- 255: reference (Sends the ID of the table to use (for "local t = {} t.a=t"))
 local pairs = pairs
 local type = type
 local string = string
@@ -22,7 +42,7 @@ local decode_types
 local function InDataEscape(s)
 	s = string.gsub(s, "([\1\2])", "\2%1")
 	s = string.gsub(s, "%z", "\2\3")
-	s = string.gsub(s, "\"", "\4") -- escape the " character to simplify client commands
+	s = string.gsub(s, "\"", "\4") // escape the " character to simplify client commands
 	return s
 end
 encode_types = {
@@ -87,8 +107,8 @@ encode_types = {
 	end},
 	CEffectData = {12, function(o, rtabs)
 		local t = {}
-		if o:GetAngles() ~= Angle(0,0,0) then
-			t.a = o:GetAngles()
+		if o:GetAngle() ~= Angle(0,0,0) then
+			t.a = o:GetAngle()
 		end
 		if o:GetAttachment() ~= 0 then
 			t.h = o:GetAttachment()
@@ -247,7 +267,7 @@ decode_types = {
 			elseif c == "\2" then
 				e = true
 			elseif c == "\1" then
-				s = string.gsub(s, "\4", "\"") -- unescape quotes
+				s = string.gsub(s, "\4", "\"") // unescape quotes
 				return s
 			else
 				s = s..c
@@ -293,7 +313,7 @@ decode_types = {
 		local ent = Entity(decode_types[6](reader))
 		local bone = decode_types[6](reader)
 		
-		if ( !IsValid( ent ) ) then return nil end;
+		if ( !IsValid( ent ) ) then return nil end;	
 		return ent:GetPhysicsObjectNum( bone )
 	end,
 	[15 ] = function(reader) -- Color

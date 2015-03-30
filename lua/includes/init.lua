@@ -1,5 +1,6 @@
-include "init_pre.lua" AddCSLuaFile "init_pre.lua"
---AddCSLuaFile()
+include ("init_pre.lua")
+AddCSLuaFile ("init_pre.lua") 
+AddCSLuaFile ("init_post.lua") 
 
 --[[---------------------------------------------------------
 	Non-Module includes
@@ -16,10 +17,9 @@ include ( "util/sql.lua" )		-- Include sql here so it's
 require ( "baseclass" )
 require ( "concommand" )		-- Console Commands
 require ( "saverestore" )		-- Save/Restore
+require ( "hook" )				-- Gamemode hooks
 require ( "gamemode" )			-- Gamemode manager
 require ( "weapons" )			-- SWEP manager
-require ( "hook" )				-- Gamemode hooks
-require ( "timer" )				-- Timer manager
 require ( "scripted_ents" )		-- Scripted Entities
 require ( "player_manager" )	-- Player models/class manager
 require ( "numpad" )
@@ -36,8 +36,7 @@ require ( "http" )
 require ( "net" )
 require ( "properties" )
 require ( "widget" )
-require ( "glon" )
-require ( "datastream" )
+require ( "cookie" )
 
 require ( "drive" )
 include ( "drive/drive_base.lua" )
@@ -51,7 +50,6 @@ if ( SERVER ) then
 
 	require( "ai_task" )
 	require( "ai_schedule" )
-	include( "util/entity_creation_helpers.lua" )
 
 end
 
@@ -65,14 +63,14 @@ if ( CLIENT ) then
 	require ( "draw" )			-- 2D Draw library
 	require ( "markup" )		-- Text markup library
 	require ( "effects" )
+	require ( "halo" )
 	require ( "killicon" )
 	require ( "spawnmenu" )
 	require ( "controlpanel" )
 	require ( "presets" )
-	require ( "cookie" )
 	require ( "menubar" )
 	require ( "matproxy" )
-	
+
 	include( "util/model_database.lua" )	-- Store information on models as they're loaded
 	include( "util/vgui_showlayout.lua" ) 	-- VGUI Performance Debug
 	include( "util/tooltips.lua" )
@@ -91,7 +89,7 @@ include( "gmsave.lua" )
 
 --[[---------------------------------------------------------
 	Extensions
-	
+
 	Load extensions that we specifically need for the menu,
 	to reduce the chances of loading something that might
 	cause errors.
@@ -125,9 +123,4 @@ if ( CLIENT ) then
 	require ( "search" )
 
 end
-
-
-
-
-AddCSLuaFile "init_post.lua" include "init_post.lua"
-
+include ("init_post.lua") 

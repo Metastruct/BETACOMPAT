@@ -1,5 +1,3 @@
-_G.start_garbage = collectgarbage"count" -- let's see how much garry fucks us
-
 if SERVER then
 	AddCSLuaFile("init.lua")
 	AddCSLuaFile("init_pre.lua")
@@ -14,6 +12,53 @@ _G._DEBUG=true
 LUA_PATH=LUA_PATH or "LUA"
 _R=_R or debug.getregistry()
 
+if _G.VERSION<151 then 
+	_G.VERSION=156
+end
+
+local _require=require
+require=function(m,...)
+	local ok,ret=pcall(_require,m,...)
+	if ok then return ret or true end
+	-- TODO: Add module info
+end
+
+if type(Vector(0,0,0))=="userdata" then
+
+	local _type=type
+	type=function(x)
+		local ot=_type(x)
+		if ot!="userdata" then
+			return ot
+		end
+		if x.x and x.y and x.z then
+			return "Vector"
+		end
+		if x.p and x.y and x.r then
+			return "Angle"
+		end
+		if x.IsValid then
+			if x.SizeToContents then
+				return "Panel"
+			end
+			if x.ComputeShadowControl then
+				return "PhysObj"
+			end
+			if x.IsPlayer and x:IsPlayer() then
+				return "Player"
+			end
+			if x.IsNPC and x:IsNPC() then
+				return "NPC"
+			end
+			if x:IsValid() then
+				return "Entity"
+			end
+			return "Entity"
+		end
+	end
+	
+end
+
 -- also fixing here
 if CLIENT then
 	local col={r=255,g=255,b=255,a=255}
@@ -22,7 +67,7 @@ if CLIENT then
 		for i=1,select('#',...) do
 			local v=select(i,...)
 			v=tostring(v) or "no value"
-			a[i]=v
+			a[i]=v	
 		
 		end
 		MsgC(col,table.concat(a,"\t")..'\n')
@@ -53,7 +98,7 @@ end
 		end
 	end
 
-file.TimeBeta =	file.Time
+file.TimeBeta =	file.Time 
 				file.Time=
 	function(name,where,...)
 		if where==nil or where==false then
@@ -199,11 +244,11 @@ end
 
 -- FIX ASAP
 local _Vector=Vector
-Vector=function(x,y,z) return y==nil and type(x)=="number" and _Vector(1,1,1) or _Vector(x or 0,y or 0,z or 0) end
+Vector=function(x,y,z) return y==nil and type(x)=="number" and _Vector(1,1,1) or _Vector(x or 0,y or 0,z or 0) end 
 
 -- FIX SOON
 local _Angle=Angle
-Angle=function(p,y,r) return y==nil and type(p)=="number" and _Angle(1,1,1) or _Angle(p or 0,y or 0,r or 0) end
+Angle=function(p,y,r) return y==nil and type(p)=="number" and _Angle(1,1,1) or _Angle(p or 0,y or 0,r or 0) end 
 
 /*
 Removed ents.Create clientside
@@ -227,19 +272,3 @@ GetAddonList=GetAddonList or engine.GetAddons
 GetAddonInfo=GetAddonInfo or function() return {} end
 GetMountableContent=GetMountableContent or function() return {} end
 GetMountedContent=GetMountedContent or function() return {} end
-
-resource = resource or {}
-resource.AddFile = resource.AddFile or function() end
-resource.AddSingleFile = resource.AddSingleFile or function() end
-
-if CLIENT and system.IsLinux() then
-	local replacements = {
-		["tahoma"] = "sans-serif"
-	}
-
-	local surface_CreateFont = surface.CreateFont
-
-	function surface.CreateFont(name, ...)
-		return surface_CreateFont(replacements[type(name) == "string" and name:lower() or nil] or name, ...)
-	end
-end

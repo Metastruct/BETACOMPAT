@@ -8,7 +8,7 @@ include ( "extensions/angle.lua" )
 include ( "extensions/debug.lua" )
 include ( "extensions/entity.lua" )
 include ( "extensions/ents.lua" )
-include ( "extensions/math.lua" )
+include ( "extensions/math.lua" )	
 include ( "extensions/player.lua" )
 include ( "extensions/player_auth.lua" )
 include ( "extensions/string.lua" )
@@ -31,8 +31,6 @@ if ( CLIENT ) then
 end
 
 ------------------------------------------
--- fu
-AddCSLuaFile"includes/extensions/file.lua"
 ------------------------------------------
 include=_include
 
@@ -45,11 +43,37 @@ for k,v in pairs(files) do
 end
 
 
-debug.Trace = debug.Trace or function()
+function debug.Trace()
 	ErrorNoHalt(debug.traceback("",2):sub(2,-1))
 end
 
 
+-- get is missing nowadays, sigh?
+http.Get=function(url,head,func,...)
+	assert(not not func)
+	local t={...}
+	local function Fail( body, length, headers, responsecode )
+		if #t>0 then
+			func(unpack(t),"",0)
+		else
+			func("",0)
+		end
+	end
+	local function Write( body, length, headers, responsecode )
+		
+		if tonumber(responsecode)!=200 then
+			Fail( body, length, headers, responsecode )
+		end
+		
+		if #t>0 then
+			func(unpack(t),body,length)
+		else
+			func(body,length)
+		end
+	end
+
+	http.Fetch( url, Write, Fail ) 
+end
 
 
 
@@ -67,7 +91,7 @@ hook.Add("PostInitEntity", "GM13", function()
 end)
 
 
-function AccessorFuncNW( tab, varname, name, varDefault, iForce )
+--[[function AccessorFuncNW( tab, varname, name, varDefault, iForce )
 
 	tab[ "Get"..name ] = function ( self ) return self:GetNetworkedVar( varname, varDefault ) end
 
@@ -85,24 +109,19 @@ function AccessorFuncNW( tab, varname, name, varDefault, iForce )
 	
 	tab[ "Set"..name ] = function ( self, v ) self:SetNetworkedVar( varname, v ) end
 
+end]]-- 
+
+FORCE_NWSTRING, FORCE_NUMBER, FORCE_NWBOOL = 1, 2, 3
+function AccessorFuncNW( tab, varname, name, varDefault, iForce )
+
+    if iForce == FORCE_NWSTRING then
+        tab[ "Set" .. name ] = function( self, v ) self:SetNWString( varname, tostring( v ) ) end
+        tab[ "Get" .. name ] = function( self ) return self:GetNWString( varname, varDefault ) end
+    elseif iForce == FORCE_NWBOOL then
+        tab[ "Set" .. name ] = function( self, v ) self:SetNWBool( varname, tobool( v ) ) end
+        tab[ "Get" .. name ] = function( self ) return self:GetNWBool( varname, varDefault ) end
+    else
+        tab[ "Set" .. name ] = function( self, v ) self:SetNWFloat( varname, tonumber( v ) ) end
+        tab[ "Get" .. name ] = function( self ) return self:GetNWFloat( varname, varDefault ) end
+    end
 end
-
-
-
-/*
-function IsMounted( name )
-
-	local content = GetMountableContent()[ name ]
-	
-	if ( content == nil ) then return false end
-	if ( content.mountable == false ) then return false end
-	
-	return content.mounted
-
-end*/
-
-local withjit=jit and jit.status and jit.status() and " (JIT Enabled)" or " (JIT Disabled)"
-Msg"[Lua] " print("Initialized GMod "..tostring(VERSION).." with "..tostring(jit and jit.version or "no LuaJit").." on "..(jit and jit.os or "??")..withjit)
-
-local t={} for k,v in pairs(engine.GetGames()) do if v.installed and v.owned and v.mounted then table.insert(t,v.folder) end end
-Msg"[Games Mounted] " print(table.concat(t," "))

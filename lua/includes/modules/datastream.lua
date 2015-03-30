@@ -274,7 +274,7 @@ function CreateSharedTable(pl,name,data,clientchanges)
 		if not supported_types[type(k)] then
 			error(("Invalid type %q for key %q!"):format(type(k), tostring(k)))
 		elseif not supported_types[type(v)] then
-			error(("Invalid type %q for value %q (of key %q)!"):format(type(v), tostring(v), tostring(k)))
+			error(("Invalid type %q for value %q (of key %q)!"):format(type(v), tostring(v), tostring(k)))	
 		end
 	end
 	local t = setmetatable({

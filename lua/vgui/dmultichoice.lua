@@ -144,7 +144,7 @@ function PANEL:OpenMenu( pControlOpener )
 	if ( self.Menu ) then
 		self.Menu:Remove()
 		self.Menu = nil
-		return
+		return		
 	end
 
 	self.Menu = DermaMenu()
@@ -156,7 +156,7 @@ function PANEL:OpenMenu( pControlOpener )
 		local x, y = self:LocalToScreen( 0, self:GetTall() )
 		
 		self.Menu:SetMinimumWidth( self:GetWide() )
-		self.Menu:Open( x, y, false, self )
+		self.Menu:Open( x, y, false, self )		
 		
 
 end
@@ -190,3 +190,5 @@ end
 
 
 derma.DefineControl( "DMultiChoice", "", PANEL, "Panel" )
+
+

@@ -96,6 +96,7 @@ lua\vgui\slidebar.lua
 lua\vgui\spawnicon.lua
 lua\vgui\vgui_panellist.lua
 lua\skins\default.lua
+lua\includes\util.lua
 lua\includes\util\sql.lua
 lua\includes\modules\baseclass.lua
 lua\includes\modules\net.lua
@@ -150,6 +151,7 @@ lua\includes\extensions\player_auth.lua
 lua\includes\extensions\string.lua
 lua\includes\modules\halo.lua
 lua\includes\extensions\table.lua
+lua\includes\extensions\file.lua
 lua\includes\extensions\ents.lua
 lua\includes\extensions\util.lua
 lua\includes\extensions\angle.lua
@@ -190,8 +192,10 @@ lua\autorun\properties\ignite.lua
 lua\autorun\properties\collisions.lua
 lua\autorun\properties\gravity.lua
 lua\autorun\properties\npc_scale.lua
+lua\autorun\game_dod.lua
 lua\autorun\game_ep2.lua
 lua\autorun\game_hl2.lua
+lua\autorun\game_css.lua
 lua\autorun\menubar.lua
 lua\autorun\properties.lua
 lua\autorun\client\demo_recording.lua
