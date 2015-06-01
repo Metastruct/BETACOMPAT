@@ -2,6 +2,7 @@ include ("init_pre.lua")
 AddCSLuaFile ("init_pre.lua") 
 AddCSLuaFile ("init_post.lua") 
 
+
 --[[---------------------------------------------------------
 	Non-Module includes
 -----------------------------------------------------------]]
@@ -9,6 +10,8 @@ AddCSLuaFile ("init_post.lua")
 include ( "util.lua" )			-- Misc Utilities
 include ( "util/sql.lua" )		-- Include sql here so it's
 								-- available at loadtime to modules.
+							
+include( "extensions/net.lua" )
 
 --[[---------------------------------------------------------
 	Shared Modules
@@ -33,7 +36,6 @@ require ( "usermessage" )
 require ( "list" )
 require ( "cvars" )
 require ( "http" )
-require ( "net" )
 require ( "properties" )
 require ( "widget" )
 require ( "cookie" )
@@ -123,4 +125,7 @@ if ( CLIENT ) then
 	require ( "search" )
 
 end
+
+
+
 include ("init_post.lua") 
